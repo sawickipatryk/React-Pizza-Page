@@ -3,24 +3,34 @@ import PropTypes from 'prop-types'
 
 import classes from './styles.module.css'
 
+import Logo from '../Logo'
+
 export const NavBar = (props) => {
   const {
     className,
+    children,
     ...otherProps
   } = props
 
   return (
-    <div
+    <nav
       className={`${classes.root}${className ? ` ${className}` : ''}`}
       {...otherProps}
     >
-      <h1>NAVBAR</h1>
-    </div>
+      <div>
+        <Logo/>
+        <ul>
+          {children}
+        </ul>
+      </div>
+
+    </nav>
   )
 }
 
 NavBar.propTypes = {
-  className: PropTypes.string
+  className: PropTypes.string,
+  children: PropTypes.node
 }
 
 export default NavBar

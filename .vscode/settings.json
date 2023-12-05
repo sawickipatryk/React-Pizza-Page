@@ -1,0 +1,62 @@
+{
+    "module-templates.engine": "handlebars",
+    "module-templates.templates": {
+      "react-component-css-module": {
+        "displayName": "React component + CSS module",
+        "defaultPath": "src/components",
+        "folder": "{{pascal name}}",
+        "questions": {
+          "name": "Component name",
+        },
+        "files": [
+          {
+            "name": "{{pascal name}}.js",
+            "content": [
+              "import React from 'react'",
+              "import PropTypes from 'prop-types'",
+              "",
+              "import classes from './styles.module.css'",
+              "",
+              "export const {{pascal name}} = (props) => {",
+              "  const {",
+              "    className,",
+              "    ...otherProps",
+              "  } = props",
+              "",
+              "  return (",
+              "    <div",
+              "      className={`${classes.root}${className ? ` ${className}` : ''}`}",
+              "      {...otherProps}",
+              "    >",
+              "",
+              "    </div>",
+              "  )",
+              "}",
+              "",
+              "{{pascal name}}.propTypes = {",
+              "  className: PropTypes.string",
+              "}",
+              "",
+              "export default {{pascal name}}",
+              ""
+            ]
+          },
+          {
+            "name": "index.js",
+            "content": [
+              "export * from './{{pascal name}}'",
+              "export { default } from './{{pascal name}}'",
+              ""
+            ]
+          },
+          {
+            "name": "styles.module.css",
+            "content": [
+              ".root {}",
+              ""
+            ]
+          }
+        ]
+      }
+    }
+  }

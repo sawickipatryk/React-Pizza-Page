@@ -6,6 +6,7 @@ import classes from './styles.module.css'
 export const Container = (props) => {
   const {
     className,
+    children,
     ...otherProps
   } = props
 
@@ -14,13 +15,14 @@ export const Container = (props) => {
       className={`${classes.root}${className ? ` ${className}` : ''}`}
       {...otherProps}
     >
-
+      {children}
     </div>
   )
 }
 
 Container.propTypes = {
-  className: PropTypes.string
+  className: PropTypes.string,
+  children: PropTypes.node
 }
 
 export default Container

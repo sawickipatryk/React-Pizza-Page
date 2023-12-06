@@ -8,6 +8,7 @@ import Logo from '../../components/Logo'
 import Conatiner from '../../components/Container'
 import ToggleMenu from '../../components/ToggleMenu'
 import Hero from '../../components/Hero'
+import FastChoice from '../../components/FastChoice'
 
 export const MainPage = (props) => {
   const {
@@ -76,6 +77,7 @@ export const MainPage = (props) => {
         contentMain={
           <>
             <Hero/>
+            <FastChoice/>
           </>
           }
         contentFooter={

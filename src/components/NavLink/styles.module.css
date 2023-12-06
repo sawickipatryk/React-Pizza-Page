@@ -1,1 +1,8 @@
-.root {}
+.root {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}

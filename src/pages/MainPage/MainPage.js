@@ -25,6 +25,7 @@ export const MainPage = (props) => {
             className={classes.container}
           >
             <NavLink
+              className={classes.navLinkLogo}
               to={'/'}
             >
               <Logo
@@ -34,26 +35,31 @@ export const MainPage = (props) => {
 
             <ul>
               <NavLink
+                className={classes.navLink}
                 to={'/'}
               >
                 HOME
               </NavLink>
               <NavLink
+                className={classes.navLink}
                 to={'/menu'}
               >
                 MENU
               </NavLink>
               <NavLink
+                className={classes.navLink}
                 to={'/aboutus'}
               >
                 ABOUT US
               </NavLink>
               <NavLink
+                className={classes.navLink}
                 to={'/gallery'}
               >
                 GALLERY
               </NavLink>
               <NavLink
+                className={classes.navLink}
                 to={'/contact'}
               >
                 CONTACT

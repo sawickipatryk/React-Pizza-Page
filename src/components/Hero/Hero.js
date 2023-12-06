@@ -3,6 +3,9 @@ import PropTypes from 'prop-types'
 
 import classes from './styles.module.css'
 
+import Conatiner from '../Container'
+import Logo from './header.png'
+
 export const Hero = (props) => {
   const {
     className,
@@ -14,7 +17,16 @@ export const Hero = (props) => {
       className={`${classes.root}${className ? ` ${className}` : ''}`}
       {...otherProps}
     >
-
+      <Conatiner>
+        <div className={classes.leftContainer}>
+          <img
+            className={classes.pizzaHero}
+            src={Logo}
+            alt={'pizza'}
+          />
+        </div>
+        <div className={classes.rightContainer}></div>
+      </Conatiner>
     </div>
   )
 }

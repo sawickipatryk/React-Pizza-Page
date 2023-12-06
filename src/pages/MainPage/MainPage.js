@@ -9,6 +9,7 @@ import Conatiner from '../../components/Container'
 import ToggleMenu from '../../components/ToggleMenu'
 import Hero from '../../components/Hero'
 import FastChoice from '../../components/FastChoice'
+import BestPizza from '../../components/BestPizza'
 
 export const MainPage = (props) => {
   const {
@@ -78,6 +79,7 @@ export const MainPage = (props) => {
           <>
             <Hero/>
             <FastChoice/>
+            <BestPizza/>
           </>
           }
         contentFooter={

@@ -24,9 +24,14 @@ export const MainPage = (props) => {
           <Conatiner
             className={classes.container}
           >
-            <Logo
-              className={classes.logo}
-            />
+            <NavLink
+              to={'/'}
+            >
+              <Logo
+                className={classes.logo}
+              />
+            </NavLink>
+
             <ul>
               <NavLink
                 to={'/'}

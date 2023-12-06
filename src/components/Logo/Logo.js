@@ -17,6 +17,7 @@ export const Logo = (props) => {
       {...otherProps}
     >
       <img
+        className={classes.logo}
         src={logo}
         alt={'logo'}
       />

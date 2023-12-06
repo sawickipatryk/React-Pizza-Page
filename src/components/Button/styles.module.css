@@ -1,4 +1,6 @@
-.root {}
+.root {
+    cursor: pointer;
+}
 
 .contained {
     border-radius: 5px;
@@ -9,4 +11,6 @@
 
 .toggle {
     color: #fff;
+    background: none;
+    border: none;
 }

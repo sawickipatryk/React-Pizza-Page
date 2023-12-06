@@ -1,1 +1,38 @@
-.root {}
+.root {
+    padding: 40px 12px;
+}
+
+.container {
+    flex-direction: column;
+    gap: 20px;
+}
+
+.leftContainer,
+.rightContainer {
+    border-radius: 10px;
+    height: 180px;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.leftContainer {
+    background-image: url('./fastChoice1.jpg');
+
+}
+
+.rightContainer {
+    background-image: url('./fastChoice2.jpg');
+}
+
+.h3 {
+    color: white;
+    display: block;
+    margin-bottom: 5px;
+    width: 200px;
+    text-shadow: 1px 1px 10px black;
+}

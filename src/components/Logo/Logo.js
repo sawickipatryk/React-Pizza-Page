@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 
 import classes from './styles.module.css'
 
+import logo from './logo.png'
+
 export const Logo = (props) => {
   const {
     className,
@@ -14,7 +16,10 @@ export const Logo = (props) => {
       className={`${classes.root}${className ? ` ${className}` : ''}`}
       {...otherProps}
     >
-
+      <img
+        src={logo}
+        alt={'logo'}
+      />
     </div>
   )
 }

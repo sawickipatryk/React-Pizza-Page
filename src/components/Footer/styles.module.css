@@ -1,1 +1,4 @@
-.root {}
+.root {
+    padding: 40px 12px 10px 12px;
+    background-color: black;
+}

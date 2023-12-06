@@ -7,6 +7,7 @@ import NavLink from '../../components/NavLink'
 import Logo from '../../components/Logo'
 import Conatiner from '../../components/Container'
 import ToggleMenu from '../../components/ToggleMenu'
+import Hero from '../../components/Hero'
 
 export const MainPage = (props) => {
   const {
@@ -33,7 +34,9 @@ export const MainPage = (props) => {
               />
             </NavLink>
 
-            <ul>
+            <ul
+              className={classes.navLinks}
+            >
               <NavLink
                 className={classes.navLink}
                 to={'/'}
@@ -72,8 +75,9 @@ export const MainPage = (props) => {
           }
         contentMain={
           <>
-            <h1>MAIN</h1>
-          </>}
+            <Hero/>
+          </>
+          }
         contentFooter={
           <>
 

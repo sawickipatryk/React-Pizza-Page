@@ -2,7 +2,7 @@
     position: relative;
 }
 
-ul {
+.navLinks {
     display: none;
     align-items: flex-start;
     justify-content: flex-start;
@@ -16,7 +16,7 @@ ul {
     padding: 10px 20px;
 }
 
-.ul.active {
+.navLinks.active {
     display: flex;
 }
 

@@ -19,6 +19,7 @@ export const NavLink = (props) => {
       {...otherProps}
     >
       <RouterNavLink
+        className={classes.navLink}
         to={to}
       >
         {children}

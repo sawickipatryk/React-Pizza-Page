@@ -1,0 +1,26 @@
+.root {
+    padding: 40px 12px;
+}
+
+.container {
+    flex-direction: column;
+}
+
+.leftContainer {
+    text-align: center;
+}
+
+.h4,
+.h3,
+.text {
+    display: block;
+    margin-bottom: 15px;
+}
+
+.button {
+    margin-bottom: 50px;
+}
+
+.img {
+    width: 100%;
+}

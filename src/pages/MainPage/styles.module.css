@@ -34,10 +34,36 @@
     width: 100%;
 }
 
-.container {
+.navContainer {
     justify-content: space-between;
 }
 
 .logo {
     width: 135px;
+}
+
+.footerContainer {
+    flex-direction: column;
+}
+
+.socialsContainer,
+.contactContainer,
+.openingHoursContainer {
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.h4 {
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.text {
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.linkSocials {
+    color: #fff;
+    margin-right: 20px;
 }

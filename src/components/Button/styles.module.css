@@ -1,1 +1,12 @@
 .root {}
+
+.contained {
+    border-radius: 5px;
+    border: 1px solid transparent;
+    padding: 10px 20px;
+    background-color: #FAC213;
+}
+
+.toogle {
+    color: #fff;
+}

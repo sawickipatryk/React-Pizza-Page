@@ -6,6 +6,7 @@ import classes from './styles.module.css'
 export const Footer = (props) => {
   const {
     className,
+    children,
     ...otherProps
   } = props
 
@@ -14,13 +15,14 @@ export const Footer = (props) => {
       className={`${classes.root}${className ? ` ${className}` : ''}`}
       {...otherProps}
     >
-      <h1>FOOTER</h1>
+      {children}
     </div>
   )
 }
 
 Footer.propTypes = {
-  className: PropTypes.string
+  className: PropTypes.string,
+  children: PropTypes.node
 }
 
 export default Footer

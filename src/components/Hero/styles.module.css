@@ -1,5 +1,30 @@
-.root {}
+.root {
+    position: relative;
+    background-image: url('./backgroundHeader.jpg');
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0px 12px;
+}
+
+.gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
 
 .pizzaHero {
-    width: 100%;
+    display: none;
+}
+
+.textContainer {
+    position: relative;
+}
+
+.header {
+    display: block;
+    margin-bottom: 20px;
 }

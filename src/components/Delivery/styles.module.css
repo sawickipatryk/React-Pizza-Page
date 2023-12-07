@@ -24,3 +24,9 @@
 .img {
     width: 100%;
 }
+
+@media screen and (min-width:1200px) {
+    .container {
+        flex-direction: row;
+    }
+}

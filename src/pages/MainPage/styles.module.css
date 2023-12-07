@@ -54,16 +54,63 @@
 }
 
 .h4 {
-    color: #fff;
+    color: #fff !important;
     margin-bottom: 10px;
 }
 
 .text {
-    color: #fff;
+    color: #fff !important;
     margin-bottom: 10px;
 }
 
 .linkSocials {
-    color: #fff;
+    color: #fff !important;
     margin-right: 20px;
+}
+
+@media screen and (min-width:768px) {
+
+    .logo {
+        width: 155px;
+    }
+}
+
+@media screen and (min-width:1200px) {
+    .toggle {
+        display: none;
+    }
+
+    .navLinks {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: row;
+        position: relative;
+        top: 0;
+        left: 0;
+        background-color: transparent;
+        width: 50%;
+        height: auto;
+        padding: 0px
+    }
+
+    .navLink {
+        border-bottom: none;
+        text-align: center;
+    }
+
+    .navLink a {
+        color: #fff;
+        padding: 25px 0px;
+    }
+
+    .footerContainer {
+        flex-direction: row;
+        align-items: flex-start !important;
+    }
+
+    .socialsContainer {
+        margin: 0px !important;
+    }
+
 }

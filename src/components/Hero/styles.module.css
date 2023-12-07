@@ -25,9 +25,33 @@
 
 .textContainer {
     position: relative;
+    max-width: 500px;
 }
 
 .header {
     display: block;
     margin-bottom: 20px;
+}
+
+@media screen and (min-width:768px) {
+    .root {
+        height: 80vh;
+    }
+}
+
+@media screen and (min-width:1200px) {
+    .container {
+        gap: 50px;
+    }
+
+
+    .leftContainer {
+        width: 45%;
+        position: relative;
+    }
+
+    .pizzaHero {
+        display: block;
+        width: 100%;
+    }
 }

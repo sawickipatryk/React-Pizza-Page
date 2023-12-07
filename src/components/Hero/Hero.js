@@ -20,7 +20,9 @@ export const Hero = (props) => {
       {...otherProps}
     >
       <div className={classes.gradient}></div>
-      <Conatiner>
+      <Conatiner
+        className={classes.container}
+      >
         <div className={classes.leftContainer}>
           <img
             className={classes.pizzaHero}

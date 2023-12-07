@@ -73,7 +73,7 @@ export const MainPage = (props) => {
               </NavLink>
             </ul>
             <ToggleMenu
-              className={classes.togglem}
+              className={classes.toggle}
             />
           </Container>
           }

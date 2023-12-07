@@ -7,3 +7,9 @@
     padding: 0px 12px;
     z-index: 999;
 }
+
+@media screen and (min-width:1200px) {
+    .root {
+        padding: 0px 0px;
+    }
+}

@@ -18,7 +18,9 @@ export const BestPizza = (props) => {
       className={`${classes.root}${className ? ` ${className}` : ''}`}
       {...otherProps}
     >
-      <Contianer>
+      <Contianer
+        className={classes.container}
+      >
         <div
           className={classes.leftContainer}
         >

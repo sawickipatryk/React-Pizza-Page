@@ -9,9 +9,10 @@ import Button from '../Button'
 export const Menu = (props) => {
   const {
     className,
+    menu,
     ...otherProps
   } = props
-
+  console.log(menu)
   return (
     <div
       className={`${classes.root}${className ? ` ${className}` : ''}`}
@@ -39,13 +40,17 @@ export const Menu = (props) => {
             PIZZA
           </Button>
         </div>
+        <div>
+
+        </div>
       </Container>
     </div>
   )
 }
 
 Menu.propTypes = {
-  className: PropTypes.string
+  className: PropTypes.string,
+  menu: PropTypes.array
 }
 
 export default Menu

@@ -23,6 +23,7 @@ export const MenuPage = (props) => {
   }
   const {
     className,
+    menu,
     ...otherProps
   } = props
 
@@ -131,7 +132,9 @@ export const MenuPage = (props) => {
                 </>
               }
             />
-            <Menu/>
+            <Menu
+              menu={menu}
+            />
           </>
           }
         contentFooter={
@@ -266,7 +269,8 @@ export const MenuPage = (props) => {
 }
 
 MenuPage.propTypes = {
-  className: PropTypes.string
+  className: PropTypes.string,
+  menu: PropTypes.array
 }
 
 export default MenuPage

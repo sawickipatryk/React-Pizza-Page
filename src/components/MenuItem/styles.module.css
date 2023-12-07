@@ -1,0 +1,19 @@
+.root {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.headerContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header,
+.price {
+    font-size: 21px;
+    color: black;
+    text-transform: none;
+}

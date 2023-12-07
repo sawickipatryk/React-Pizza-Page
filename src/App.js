@@ -26,8 +26,6 @@ export const App = () => {
     value
   } = menuState
 
-  console.log(value)
-
   const getMenu = React.useCallback(async () => {
     dispatch(createActionStart())
     try {

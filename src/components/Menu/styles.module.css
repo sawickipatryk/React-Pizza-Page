@@ -1,1 +1,38 @@
-.root {}
+.root {
+    position: relative;
+    overflow: hidden;
+}
+
+.imgBackGroundMenu {
+    position: absolute;
+    top: 100px;
+    left: 0;
+    transform: rotate(-20deg);
+    filter: opacity(5%);
+    width: 200px;
+}
+
+.imgBackGroundMenuSecond {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: rotate(-20deg);
+    filter: opacity(5%);
+    width: 200px;
+}
+
+.container {
+    flex-direction: column;
+    padding: 40px 12px;
+}
+
+.buttonContainer {
+    margin-bottom: 30px;
+    justify-content: center;
+    gap: 20px;
+}
+
+.menuItemsContainer {
+    flex-direction: column;
+    gap: 10px;
+}

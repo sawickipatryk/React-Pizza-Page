@@ -9,6 +9,13 @@
     background-color: #FAC213;
 }
 
+.menu {
+    border-radius: 5px;
+    border: 1px solid transparent;
+    padding: 10px 20px;
+    background-color: #111;
+}
+
 .toggle {
     color: #fff;
     background: none;

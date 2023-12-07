@@ -14,6 +14,12 @@ import Delivery from '../../components/Delivery'
 import Typography from '../../components/Typography'
 
 export const MainPage = (props) => {
+  const [toggleMenu, setToggleMenu] = React.useState(false)
+
+  const openMenu = () => {
+    setToggleMenu(!toggleMenu)
+  }
+
   const {
     className,
     ...otherProps
@@ -39,7 +45,7 @@ export const MainPage = (props) => {
             </NavLink>
 
             <ul
-              className={classes.navLinks}
+              className={`${toggleMenu ? ` ${classes.open}` : classes.navLinks}`}
             >
               <NavLink
                 className={classes.navLink}
@@ -73,6 +79,7 @@ export const MainPage = (props) => {
               </NavLink>
             </ul>
             <ToggleMenu
+              openMenu={openMenu}
               className={classes.toggle}
             />
           </Container>
@@ -207,7 +214,6 @@ export const MainPage = (props) => {
                   Sun: 14:00 - 24:00
                 </Typography>
               </Container>
-
             </Container>
           </>
           }

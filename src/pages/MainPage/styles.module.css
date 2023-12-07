@@ -16,7 +16,8 @@
     padding: 10px 20px;
 }
 
-.navLinks.active {
+.open {
+    composes: navLinks;
     display: flex;
 }
 

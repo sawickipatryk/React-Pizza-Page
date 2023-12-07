@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import classes from './styles.module.css'
+import pizzaHero from './header.png'
+
 import MainLayout from '../../layouts/MainLayout'
 import NavLink from '../../components/NavLink'
 import Logo from '../../components/Logo'
@@ -12,6 +14,7 @@ import FastChoice from '../../components/FastChoice'
 import BestPizza from '../../components/BestPizza'
 import Delivery from '../../components/Delivery'
 import Typography from '../../components/Typography'
+import Button from '../../components/Button'
 
 export const MainPage = (props) => {
   const [toggleMenu, setToggleMenu] = React.useState(false)
@@ -86,7 +89,44 @@ export const MainPage = (props) => {
           }
         contentMain={
           <>
-            <Hero/>
+            <Hero
+              contentHero={
+                <div
+                  className={classes.background}
+                >
+                  <div className={classes.gradient}></div>
+                  <Container
+                    className={classes.container}
+                  >
+                    <div className={classes.leftContainer}>
+                      <img
+                        className={classes.pizzaHero}
+                        src={pizzaHero}
+                        alt={'pizza'}
+                      />
+                    </div>
+                    <div className={classes.rightContainer}>
+                      <div
+                        className={classes.textContainer}
+                      >
+                        <Typography
+                          className={classes.header}
+                          variant={'h1'}
+                        >
+                          Enjoy Your Pizza In Town
+                        </Typography>
+                        <Button
+                          className={classes.button}
+                          variant={'contained'}
+                        >
+                          ORDER NOW
+                        </Button>
+                      </div>
+                    </div>
+                  </Container>
+                </div>
+            }
+            />
             <FastChoice/>
             <BestPizza/>
             <Delivery/>

@@ -43,6 +43,41 @@
     width: 135px;
 }
 
+.background {
+    position: relative;
+    background-image: url('./backgroundHeader.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0px 12px;
+}
+
+.gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.pizzaHero {
+    display: none;
+}
+
+.textContainer {
+    position: relative;
+    max-width: 500px;
+}
+
+.header {
+    display: block;
+    margin-bottom: 20px;
+}
+
 .footerContainer {
     flex-direction: column;
 }
@@ -70,6 +105,9 @@
 }
 
 @media screen and (min-width:768px) {
+    .background {
+        height: 80vh;
+    }
 
     .logo {
         width: 155px;
@@ -112,6 +150,21 @@
 
     .socialsContainer {
         margin: 0px !important;
+    }
+
+    .container {
+        gap: 50px;
+    }
+
+
+    .leftContainer {
+        width: 45%;
+        position: relative;
+    }
+
+    .pizzaHero {
+        display: block;
+        width: 100%;
     }
 
 }

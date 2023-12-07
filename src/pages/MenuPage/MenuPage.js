@@ -2,6 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import classes from './styles.module.css'
+import img from './bgcHeader.png'
+import img1 from './bacgroundHeader3.png'
+import img2 from './backgroundheader5.png'
+
+import Hero from '../../components/Hero'
 import MainLayout from '../../layouts/MainLayout'
 import NavLink from '../../components/NavLink'
 import Logo from '../../components/Logo'
@@ -80,9 +85,48 @@ export const MenuPage = (props) => {
           </Container>
           }
         contentMain={
-          <>
-
-          </>
+          <Hero
+            contentHero={
+              <div
+                className={classes.background}
+              >
+                <img
+                  className={classes.imgBackGroundHero}
+                  src={img1}
+                  alt={'table'}
+                />
+                <img
+                  className={classes.imgBackGroundHeroSecond}
+                  src={img2}
+                  alt={'waiter with pizza'}
+                />
+                <div className={classes.gradient}></div>
+                <Container
+                  className={classes.container}
+                >
+                  <div className={classes.leftContainer}>
+                    <img
+                      className={classes.imgHero}
+                      src={img}
+                      alt={'sweets'}
+                    />
+                  </div>
+                  <div className={classes.rightContainer}>
+                    <div
+                      className={classes.textContainer}
+                    >
+                      <Typography
+                        className={classes.header}
+                        variant={'h2'}
+                      >
+                        Menu
+                      </Typography>
+                    </div>
+                  </div>
+                </Container>
+              </div>
+          }
+          />
           }
         contentFooter={
           <>

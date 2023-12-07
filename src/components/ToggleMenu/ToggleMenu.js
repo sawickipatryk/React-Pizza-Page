@@ -7,6 +7,7 @@ import Button from '../Button'
 
 export const ToggleMenu = (props) => {
   const {
+    openMenu,
     className,
     ...otherProps
   } = props
@@ -17,6 +18,7 @@ export const ToggleMenu = (props) => {
       {...otherProps}
     >
       <Button
+        onClick= {openMenu}
         variant={'toggle'}
       >
         <svg
@@ -37,7 +39,8 @@ export const ToggleMenu = (props) => {
 }
 
 ToggleMenu.propTypes = {
-  className: PropTypes.string
+  className: PropTypes.string,
+  openMenu: PropTypes.func.isRequired
 }
 
 export default ToggleMenu

@@ -1,0 +1,117 @@
+.root {
+    position: relative;
+}
+
+.navLinks {
+    display: none;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    position: absolute;
+    top: 62px;
+    left: 0;
+    background-color: #fff;
+    width: 100%;
+    height: 50vh;
+    padding: 10px 20px;
+}
+
+.open {
+    composes: navLinks;
+    display: flex;
+}
+
+.navLink {
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    width: 100%;
+}
+
+.navLink a {
+    color: black;
+    font-weight: 500;
+    display: inline-block;
+    padding: 20px 0px;
+    width: 100%;
+}
+
+.navContainer {
+    justify-content: space-between;
+}
+
+.logo {
+    width: 135px;
+}
+
+.footerContainer {
+    flex-direction: column;
+}
+
+.socialsContainer,
+.contactContainer,
+.openingHoursContainer {
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.h4 {
+    color: #fff !important;
+    margin-bottom: 10px;
+}
+
+.text {
+    color: #fff !important;
+    margin-bottom: 10px;
+}
+
+.linkSocials {
+    color: #fff !important;
+    margin-right: 20px;
+}
+
+@media screen and (min-width:768px) {
+
+    .logo {
+        width: 155px;
+    }
+}
+
+@media screen and (min-width:1200px) {
+    .toggle {
+        display: none;
+    }
+
+    .navLinks {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: row;
+        position: relative;
+        top: 0;
+        left: 0;
+        background-color: transparent;
+        width: 50%;
+        height: auto;
+        padding: 0px
+    }
+
+    .navLink {
+        border-bottom: none;
+        text-align: center;
+    }
+
+    .navLink a {
+        color: #fff;
+        padding: 25px 0px;
+    }
+
+    .footerContainer {
+        flex-direction: row;
+        align-items: flex-start !important;
+    }
+
+    .socialsContainer {
+        margin: 0px !important;
+    }
+
+}

@@ -13,8 +13,9 @@ import {
 
 import { getAll } from './api'
 
-import MainPage from './pages/MainPage/MainPage'
-import MenuPage from './pages/MenuPage/MenuPage'
+import MainPage from './pages/MainPage'
+import MenuPage from './pages/MenuPage'
+import AboutPage from './pages/AboutPage'
 import Loader from './components/Loader'
 
 export const App = () => {
@@ -64,6 +65,14 @@ export const App = () => {
           path={'/menu'}
           element={
             <MenuPage
+              menu={value}
+            />
+      }
+        />
+        <Route
+          path={'/aboutus'}
+          element={
+            <AboutPage
               menu={value}
             />
       }

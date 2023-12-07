@@ -2,6 +2,11 @@
     position: relative;
 }
 
+.navContainer {
+    padding: 0 12px;
+}
+
+
 .navLinks {
     display: none;
     align-items: flex-start;
@@ -86,7 +91,7 @@
 .contactContainer,
 .openingHoursContainer {
     flex-direction: column;
-    margin-bottom: 10px;
+    margin-bottom: 15px !important;
 }
 
 .h4 {
@@ -111,6 +116,15 @@
 
     .logo {
         width: 155px;
+    }
+
+    .footerContainer {
+        flex-direction: row;
+        align-items: flex-start !important;
+    }
+
+    .socialsContainer {
+        margin: 0px !important;
     }
 }
 
@@ -141,15 +155,6 @@
     .navLink a {
         color: #fff;
         padding: 25px 0px;
-    }
-
-    .footerContainer {
-        flex-direction: row;
-        align-items: flex-start !important;
-    }
-
-    .socialsContainer {
-        margin: 0px !important;
     }
 
     .container {

@@ -4,8 +4,8 @@
     left: 0;
     width: 100%;
     background-color: transparent;
-    padding: 0px 12px;
     z-index: 999;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 }
 
 @media screen and (min-width:1200px) {

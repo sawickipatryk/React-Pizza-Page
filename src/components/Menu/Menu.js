@@ -38,16 +38,19 @@ export const Menu = (props) => {
           className={classes.buttonContainer}
         >
           <Button
+            className={classes.button}
             variant={'menu'}
           >
             ALL
           </Button>
           <Button
+            className={classes.button}
             variant={'menu'}
           >
             DRINK
           </Button>
           <Button
+            className={classes.button}
             variant={'menu'}
           >
             PIZZA

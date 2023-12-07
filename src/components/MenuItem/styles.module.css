@@ -17,3 +17,11 @@
     color: black;
     text-transform: none;
 }
+
+@media screen and (min-width:768px) {
+    .root {
+        width: 45%;
+    }
+}
+
+@media screen and (min-width:1200px) {}

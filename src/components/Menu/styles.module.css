@@ -36,3 +36,29 @@
     flex-direction: column;
     gap: 10px;
 }
+
+@media screen and (min-width:768px) {
+    .menuItemsContainer {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .button {
+        width: 140px;
+    }
+}
+
+@media screen and (min-width:1200px) {
+    .menuItemsContainer {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .button {
+        width: 170px
+    }
+}

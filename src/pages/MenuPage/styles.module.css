@@ -2,6 +2,10 @@
     position: relative;
 }
 
+.navContainer {
+    padding: 0 12px;
+}
+
 .navLinks {
     display: none;
     align-items: flex-start;
@@ -90,7 +94,7 @@
 .contactContainer,
 .openingHoursContainer {
     flex-direction: column;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .h4 {
@@ -117,9 +121,26 @@
     .logo {
         width: 155px;
     }
+
+    .imgBackGroundHero {
+        top: 0%;
+    }
+
+    .footerContainer {
+        flex-direction: row;
+        align-items: flex-start !important;
+    }
+
+    .socialsContainer {
+        margin: 0px !important;
+    }
 }
 
 @media screen and (min-width:1200px) {
+    .background {
+        height: 40vh;
+    }
+
     .toggle {
         display: none;
     }
@@ -144,17 +165,13 @@
     }
 
     .navLink a {
-        color: #fff;
+        color: #111;
         padding: 25px 0px;
+        font-weight: 600;
     }
 
-    .footerContainer {
-        flex-direction: row;
-        align-items: flex-start !important;
-    }
-
-    .socialsContainer {
-        margin: 0px !important;
+    .header {
+        font-size: 48px;
     }
 
 }

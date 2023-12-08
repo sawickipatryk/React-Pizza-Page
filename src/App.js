@@ -15,6 +15,7 @@ import MainPage from './pages/MainPage'
 import MenuPage from './pages/MenuPage'
 import AboutPage from './pages/AboutPage'
 import GalleryPage from './pages/GalleryPage'
+import ContactPage from './pages/ContactPage'
 import Loader from './components/Loader'
 import handleAsyncAction from './handleAsyncAction'
 import FullPageLayout from './components/FullPageLayout'
@@ -94,6 +95,12 @@ export const App = () => {
           path={'/gallery'}
           element={
             <GalleryPage />
+      }
+        />
+        <Route
+          path={'/contact'}
+          element={
+            <ContactPage />
       }
         />
       </Routes>

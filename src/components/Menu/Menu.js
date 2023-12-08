@@ -3,8 +3,14 @@ import PropTypes from 'prop-types'
 
 import classes from './styles.module.css'
 
+import { useSelector, useDispatch } from 'react-redux'
+
+import { createActionRemoveError } from '../../state/loaders'
+
 import Container from '../Container'
 import Button from '../Button'
+import FullPageLayout from '../FullPageLayout'
+import Message from '../Message'
 import MenuItem from '../MenuItem/MenuItem'
 
 import img from './bgcHeader.png'
@@ -15,7 +21,18 @@ export const Menu = (props) => {
     menu,
     ...otherProps
   } = props
-  console.log(menu)
+
+  const dispatch = useDispatch()
+
+  const {
+    hasError,
+    errorMessage
+  } = useSelector((state) => state.loaders)
+
+  const dismissMessage = React.useCallback(() => {
+    dispatch(createActionRemoveError())
+  })
+
   return (
     <div
       className={`${classes.root}${className ? ` ${className}` : ''}`}
@@ -60,19 +77,31 @@ export const Menu = (props) => {
           className={classes.menuItemsContainer}
         >
           {
-            menu && menu.map((item) => {
-              return (
-                <MenuItem
-                  key={item.id}
-                  id={item.id}
-                  name={item.name}
-                  type={item.type}
-                  price={item.price}
-                  description={item.text}
-                />
-              )
-            })
-          }
+      (
+        hasError
+      )
+        ? (
+          <FullPageLayout>
+            <Message
+              onButtonClick={dismissMessage}
+              iconVariant={'error'}
+              message={errorMessage}
+            />
+          </FullPageLayout>
+          )
+        : menu && menu.map((item) => {
+          return (
+            <MenuItem
+              key={item.id}
+              id={item.id}
+              name={item.name}
+              type={item.type}
+              price={item.price}
+              description={item.text}
+            />
+          )
+        })
+      }
         </Container>
       </Container>
     </div>

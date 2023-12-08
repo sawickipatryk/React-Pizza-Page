@@ -39,20 +39,20 @@ export const reducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_LOADING:
       return {
-        isLoading: true,
-        ...state
+        ...state,
+        isLoading: true
       }
     case SET_ERROR:
       return {
+        ...state,
         hasError: true,
-        errorMessage: action.payload.message,
-        ...state
+        errorMessage: action.payload.message
       }
     case SET_INFO:
       return {
+        ...state,
         isInfoDisplayed: true,
-        infoMessage: action.payload.message,
-        ...state
+        infoMessage: action.payload.message
       }
     case REMOVE_LOADING:
       return {

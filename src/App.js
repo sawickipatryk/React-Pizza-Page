@@ -16,18 +16,17 @@ import MenuPage from './pages/MenuPage'
 import AboutPage from './pages/AboutPage'
 import Loader from './components/Loader'
 import handleAsyncAction from './handleAsyncAction'
-import Message from './Message/Message'
+import FullPageLayout from './components/FullPageLayout'
+import Message from './components/Message'
 
 export const App = () => {
-  const dispatch = useDispatch()
   const {
     data
   } = useSelector((state) => state.menu)
+  const dispatch = useDispatch()
 
   const {
     isLoading,
-    hasError,
-    errorMessage,
     isInfoDisplayed,
     infoMessage
   } = useSelector((state) => state.loaders)
@@ -46,31 +45,25 @@ export const App = () => {
         isLoading
       )
         ? (
-          <Loader/>
+          <FullPageLayout>
+            <Loader/>
+          </FullPageLayout>
           )
         : null
       }
-      {
-      (
-        hasError
-      )
-        ? (
-          <Message
-            iconVariant={'error'}
-            message={errorMessage}
-          />
-          )
-        : null
-      }
+
       {
       (
         isInfoDisplayed
       )
         ? (
-          <Message
-            iconVariant={'info'}
-            message={infoMessage}
-          />
+          <FullPageLayout>
+            <Message
+              iconVariant={'info'}
+              message={infoMessage}
+            />
+          </FullPageLayout>
+
           )
         : null
       }

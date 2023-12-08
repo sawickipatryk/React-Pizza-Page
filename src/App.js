@@ -16,15 +16,21 @@ import MenuPage from './pages/MenuPage'
 import AboutPage from './pages/AboutPage'
 import Loader from './components/Loader'
 import handleAsyncAction from './handleAsyncAction'
+import Message from './Message/Message'
 
 export const App = () => {
   const dispatch = useDispatch()
-  const menuState = useSelector((state) => state.menu)
+  const {
+    data
+  } = useSelector((state) => state.menu)
 
   const {
     isLoading,
-    data
-  } = menuState
+    hasError,
+    errorMessage,
+    isInfoDisplayed,
+    infoMessage
+  } = useSelector((state) => state.loaders)
 
   React.useEffect(() => {
     handleAsyncAction(async () => {
@@ -41,6 +47,30 @@ export const App = () => {
       )
         ? (
           <Loader/>
+          )
+        : null
+      }
+      {
+      (
+        hasError
+      )
+        ? (
+          <Message
+            iconVariant={'error'}
+            message={errorMessage}
+          />
+          )
+        : null
+      }
+      {
+      (
+        isInfoDisplayed
+      )
+        ? (
+          <Message
+            iconVariant={'info'}
+            message={infoMessage}
+          />
           )
         : null
       }

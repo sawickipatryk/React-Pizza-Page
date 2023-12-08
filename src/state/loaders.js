@@ -5,9 +5,8 @@ const REMOVE_LOADING = 'loaders/REMOVE_LOADING'
 const REMOVE_ERROR = 'loaders/REMOVE_ERROR'
 const REMOVE_INFO = 'loaders/REMOVE_INFO'
 
-export const createActionSetLoading = (message) => ({
-  type: SET_LOADING,
-  payload: { message }
+export const createActionSetLoading = () => ({
+  type: SET_LOADING
 })
 export const createActionSetError = (message) => ({
   type: SET_ERROR,
@@ -18,13 +17,13 @@ export const createActionSetInfo = (message) => ({
   payload: { message }
 })
 
-export const createActionRemoveLoading = (message) => ({
+export const createActionRemoveLoading = () => ({
   type: REMOVE_LOADING
 })
-export const createActionRemoveError = (message) => ({
+export const createActionRemoveError = () => ({
   type: REMOVE_ERROR
 })
-export const createActionRemoveInfo = (message) => ({
+export const createActionRemoveInfo = () => ({
   type: REMOVE_INFO
 })
 
@@ -41,7 +40,6 @@ export const reducer = (state = initialState, action) => {
     case SET_LOADING:
       return {
         isLoading: true,
-        loadingMessage: action.payload.message,
         ...state
       }
     case SET_ERROR:
@@ -59,8 +57,7 @@ export const reducer = (state = initialState, action) => {
     case REMOVE_LOADING:
       return {
         ...state,
-        isLoading: false,
-        loadingMessage: initialState.loadingMessage
+        isLoading: false
       }
     case REMOVE_ERROR:
       return {

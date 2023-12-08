@@ -41,7 +41,7 @@
     .menuItemsContainer {
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: center;
+        justify-content: space-between;
         gap: 20px;
     }
 
@@ -54,7 +54,7 @@
     .menuItemsContainer {
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: center;
+        justify-content: space-between;
         gap: 20px;
     }
 

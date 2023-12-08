@@ -7,22 +7,9 @@ export const createActionSetMenu = (data) => ({
   type: SET,
   payload: { data }
 })
-export const createActionStart = () => ({
-  type: START
-})
-export const createActionStop = () => ({
-  type: STOP
-})
-export const createActionSetError = (error) => ({
-  type: ERROR,
-  payload: { error }
-})
 
 const initialState = {
-  data: null,
-  error: null,
-  errorMessage: '',
-  loading: false
+  data: null
 }
 
 export const reducer = (state = initialState, action) => {
@@ -47,8 +34,7 @@ export const reducer = (state = initialState, action) => {
     case ERROR:
       return {
         ...state,
-        error: action.payload.error,
-        errorMessage: action.payload.error.message
+        error: action.payload.error
       }
     default:
       return state

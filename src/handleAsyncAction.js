@@ -1,20 +1,19 @@
 import { store } from './store'
 
 import {
-  createActionStart,
-  createActionStop,
-  createActionSetError
-}
-  from './state/menu'
+  createActionSetLoading,
+  createActionSetError,
+  createActionRemoveLoading
+} from './state/loaders'
 
 export const handleAsyncAction = async (asyncAction, message) => {
-  store.dispatch(createActionStart(message))
+  store.dispatch(createActionSetLoading(message))
   try {
     await asyncAction()
   } catch (error) {
     store.dispatch(createActionSetError(error.message || error.data.error.message))
   } finally {
-    store.dispatch(createActionStop())
+    store.dispatch(createActionRemoveLoading())
   }
 }
 

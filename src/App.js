@@ -5,11 +5,9 @@ import { Routes, Route } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 
 import {
-  createActionSetMenu,
-  createActionStart,
-  createActionStop,
-  createActionSetError
-} from './state/menu'
+  createActionSetMenu
+}
+  from './state/menu'
 
 import { getAll } from './api'
 
@@ -17,6 +15,7 @@ import MainPage from './pages/MainPage'
 import MenuPage from './pages/MenuPage'
 import AboutPage from './pages/AboutPage'
 import Loader from './components/Loader'
+import handleAsyncAction from './handleAsyncAction'
 
 export const App = () => {
   const dispatch = useDispatch()
@@ -24,23 +23,15 @@ export const App = () => {
 
   const {
     isLoading,
-    value
+    data
   } = menuState
 
-  const getMenu = React.useCallback(async () => {
-    dispatch(createActionStart())
-    try {
+  React.useEffect(() => {
+    handleAsyncAction(async () => {
       const menu = await getAll()
       dispatch(createActionSetMenu(menu))
-    } catch (error) {
-      dispatch(createActionSetError(error))
-    }
-    dispatch(createActionStop())
+    })
   }, [dispatch])
-
-  React.useEffect(() => {
-    getMenu()
-  }, [getMenu])
 
   return (
     <>
@@ -65,16 +56,14 @@ export const App = () => {
           path={'/menu'}
           element={
             <MenuPage
-              menu={value}
+              menu={data}
             />
       }
         />
         <Route
           path={'/aboutus'}
           element={
-            <AboutPage
-              menu={value}
-            />
+            <AboutPage />
       }
         />
       </Routes>

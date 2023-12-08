@@ -19,8 +19,9 @@ export const createActionSetError = (error) => ({
 })
 
 const initialState = {
-  value: null,
+  data: null,
   error: null,
+  errorMessage: '',
   loading: false
 }
 
@@ -29,13 +30,13 @@ export const reducer = (state = initialState, action) => {
     case SET:
       return {
         ...state,
-        value: action.payload.data
+        data: action.payload.data
       }
     case START:
       return {
         ...state,
         loading: true,
-        value: initialState.value,
+        data: initialState.data,
         error: initialState.error
       }
     case STOP:
@@ -46,7 +47,8 @@ export const reducer = (state = initialState, action) => {
     case ERROR:
       return {
         ...state,
-        error: action.payload.error
+        error: action.payload.error,
+        errorMessage: action.payload.error.message
       }
     default:
       return state

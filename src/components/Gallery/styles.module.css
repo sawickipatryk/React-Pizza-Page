@@ -1,1 +1,26 @@
-.root {}
+.root {
+    padding: 40px 12px;
+}
+
+.imgContainer {
+    display: flex;
+}
+
+.container {
+    display: grid;
+    gap: 20px;
+}
+
+@media screen and (min-width:768px) {
+    .container {
+        display: grid;
+        grid-template-columns: repeat(2, auto)
+    }
+}
+
+@media screen and (min-width:1024px) {
+    .container {
+        display: grid;
+        grid-template-columns: repeat(3, auto)
+    }
+}

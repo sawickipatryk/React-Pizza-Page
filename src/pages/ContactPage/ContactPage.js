@@ -13,7 +13,7 @@ import Logo from '../../components/Logo'
 import Container from '../../components/Container'
 import ToggleMenu from '../../components/ToggleMenu'
 import Typography from '../../components/Typography'
-import Gallery from '../../components/Gallery'
+import ContactForm from '../../components/ContactForm'
 
 export const ContactPage = (props) => {
   const [toggleMenu, setToggleMenu] = React.useState(false)
@@ -121,7 +121,7 @@ export const ContactPage = (props) => {
                             className={classes.header}
                             variant={'h2'}
                           >
-                            GALLERY
+                            CONTACT
                           </Typography>
                         </div>
                       </div>
@@ -130,7 +130,7 @@ export const ContactPage = (props) => {
                 </>
             }
             />
-            <Gallery/>
+            <ContactForm/>
           </>
         }
         contentFooter={

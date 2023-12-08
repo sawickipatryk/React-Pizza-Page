@@ -6,8 +6,8 @@ import {
   createActionRemoveLoading
 } from './state/loaders'
 
-export const handleAsyncAction = async (asyncAction, message) => {
-  store.dispatch(createActionSetLoading(message))
+export const handleAsyncAction = async (asyncAction) => {
+  store.dispatch(createActionSetLoading())
   try {
     await asyncAction()
   } catch (error) {

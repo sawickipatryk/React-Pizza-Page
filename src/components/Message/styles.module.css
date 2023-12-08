@@ -1,0 +1,11 @@
+.root {}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.message {
+    margin: 30px 0px;
+}

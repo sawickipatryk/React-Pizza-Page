@@ -5,8 +5,8 @@ import classes from './styles.module.css'
 
 import InfoIcon from './InfoIcon'
 import ErrorIcon from './ErrorIcon'
-import Typography from '../components/Typography'
-import Button from '../components/Button'
+import Button from '../Button'
+import Typography from '../Typography'
 
 export const Message = (props) => {
   const {
@@ -40,6 +40,7 @@ export const Message = (props) => {
           {message}
         </Typography>
         <Button
+          onClick={onButtonClick}
           variant={'contained'}
         >
           {buttonLabel}

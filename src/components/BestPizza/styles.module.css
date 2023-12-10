@@ -36,6 +36,7 @@
 
     .leftContainer {
         display: block;
+        width: 50%;
     }
 }
 
@@ -50,5 +51,10 @@
 
     .span {
         font-size: 120px;
+    }
+
+    .rightContainer {
+        display: block;
+        width: 50%;
     }
 }

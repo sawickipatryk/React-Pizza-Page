@@ -6,6 +6,8 @@ import img from './bgcHeader.png'
 import img1 from './bacgroundHeader3.png'
 import img2 from './backgroundheader5.png'
 
+import { useForm, FormProvider } from 'react-hook-form'
+
 import Hero from '../../components/Hero'
 import MainLayout from '../../layouts/MainLayout'
 import NavLink from '../../components/NavLink'
@@ -22,9 +24,21 @@ export const ContactPage = (props) => {
     ...otherProps
   } = props
 
+  const methods = useForm()
+  const { handleSubmit } = methods
+
   const openMenu = () => {
     setToggleMenu(!toggleMenu)
   }
+  const onSubmit = handleSubmit(
+    (data, e) => {
+      console.log('valid', data)
+    },
+    (errors, e) => {
+      console.log('Error', errors)
+    }
+  )
+
   return (
     <div
       className={`${classes.root}${className ? ` ${className}` : ''}`}
@@ -130,7 +144,13 @@ export const ContactPage = (props) => {
                 </>
             }
             />
-            <ContactForm/>
+            <FormProvider
+              {...methods}
+            >
+              <ContactForm
+                onSubmit={onSubmit}
+              />
+            </FormProvider>
           </>
         }
         contentFooter={

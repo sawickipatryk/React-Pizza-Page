@@ -81,7 +81,9 @@ export const Menu = (props) => {
         hasError
       )
         ? (
-          <FullPageLayout>
+          <FullPageLayout
+            variant={'info'}
+          >
             <Message
               onButtonClick={dismissMessage}
               iconVariant={'error'}

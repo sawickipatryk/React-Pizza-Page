@@ -80,6 +80,12 @@ export const MainPage = (props) => {
               >
                 CONTACT
               </NavLink>
+              <NavLink
+                className={classes.navLink}
+                to={'/signin'}
+              >
+                SIGN IN
+              </NavLink>
             </ul>
             <ToggleMenu
               openMenu={openMenu}

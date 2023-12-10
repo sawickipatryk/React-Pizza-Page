@@ -20,6 +20,7 @@ import Loader from './components/Loader'
 import handleAsyncAction from './handleAsyncAction'
 import FullPageLayout from './components/FullPageLayout'
 import Message from './components/Message'
+import SignInPage from './pages/SignInPage/SignInPage'
 
 export const App = () => {
   const {
@@ -47,7 +48,9 @@ export const App = () => {
         isLoading
       )
         ? (
-          <FullPageLayout>
+          <FullPageLayout
+            variant={'loader'}
+          >
             <Loader/>
           </FullPageLayout>
           )
@@ -59,7 +62,9 @@ export const App = () => {
         isInfoDisplayed
       )
         ? (
-          <FullPageLayout>
+          <FullPageLayout
+            variant={'info'}
+          >
             <Message
               iconVariant={'info'}
               message={infoMessage}
@@ -101,6 +106,12 @@ export const App = () => {
           path={'/contact'}
           element={
             <ContactPage />
+      }
+        />
+        <Route
+          path={'/signin'}
+          element={
+            <SignInPage />
       }
         />
       </Routes>

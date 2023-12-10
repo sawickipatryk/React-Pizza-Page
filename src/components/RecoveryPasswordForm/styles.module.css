@@ -1,0 +1,16 @@
+.root {}
+
+.h2 {
+    display: block;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.formWrapper {
+    padding: 0 12px;
+}
+
+.button {
+    margin-bottom: 15px;
+    width: 100%;
+}

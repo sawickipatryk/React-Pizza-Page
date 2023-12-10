@@ -22,6 +22,7 @@ export const SignInForm = (props) => {
   const navigate = useNavigate()
   const onClickBackToMainPage = React.useCallback(() => navigate('/'), [navigate])
   const onClickSignUp = React.useCallback(() => navigate('/signup'), [navigate])
+  const onClickRecoveryPassword = React.useCallback(() => navigate('/recoverypassword'), [navigate])
 
   const {
     register,
@@ -85,6 +86,13 @@ export const SignInForm = (props) => {
         variant={'contained'}
       >
         Create Account
+      </Button>
+      <Button
+        onClick={onClickRecoveryPassword}
+        className={classes.button}
+        variant={'contained'}
+      >
+        Recovery Password
       </Button>
       <Button
         onClick={onClickBackToMainPage}

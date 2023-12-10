@@ -22,6 +22,7 @@ import FullPageLayout from './components/FullPageLayout'
 import Message from './components/Message'
 import SignInPage from './pages/SignInPage'
 import SignUpPage from './pages/SignUpPage'
+import RecoveryPasswordPage from './pages/RecoveryPasswordPage'
 
 export const App = () => {
   const {
@@ -119,6 +120,12 @@ export const App = () => {
           path={'/signup'}
           element={
             <SignUpPage />
+      }
+        />
+        <Route
+          path={'/recoverypassword'}
+          element={
+            <RecoveryPasswordPage />
       }
         />
       </Routes>

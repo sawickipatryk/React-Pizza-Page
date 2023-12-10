@@ -1,1 +1,8 @@
-.root {}
+.root {
+    padding: 40px 12px;
+}
+
+.wrapper {
+    max-width: 600px;
+    margin: auto;
+}

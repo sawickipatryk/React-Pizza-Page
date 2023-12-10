@@ -62,7 +62,9 @@ export const ContactForm = (props) => {
       {
     (popUp)
       ? (
-        <FullPageLayout>
+        <FullPageLayout
+          variant={'info'}
+        >
           <Message
             onButtonClick={dismissMessage}
             iconVariant={'error'}

@@ -7,12 +7,16 @@ export const FullPageLayout = (props) => {
   const {
     className,
     children,
+    variant,
     ...otherProps
   } = props
 
+  const variantClasses = classes[variant]
+
   return (
     <div
-      className={`${classes.root}${className ? ` ${className}` : ''}`}
+      className={`${classes.root}${className ? ` ${className}` : ''}
+      ${variantClasses ? ` ${variantClasses}` : ''}`}
       {...otherProps}
     >
       {children}
@@ -22,6 +26,7 @@ export const FullPageLayout = (props) => {
 
 FullPageLayout.propTypes = {
   className: PropTypes.string,
+  variant: PropTypes.oneOf(['loader', 'info']),
   children: PropTypes.node
 }
 

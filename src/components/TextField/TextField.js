@@ -12,11 +12,10 @@ export const TextField = React.forwardRef((props, ref) => {
 
   return (
     <div
-      className={`${classes.root}${className ? ` ${className}` : ''}`}
-
+      className={classes.wrapperTextField}
     >
       <input
-        className={`${classes.input}${errorMessage ? ` ${className}` : ''}`}
+        className={`${classes.input}${errorMessage ? ` ${classes.hasError}` : ''}`}
         ref={ref}
         {...otherProps}
       />
@@ -38,8 +37,8 @@ export const TextField = React.forwardRef((props, ref) => {
 TextField.displayName = 'TextField'
 
 TextField.propTypes = {
-  className: PropTypes.string,
-  errorMessage: PropTypes.string
+  errorMessage: PropTypes.string,
+  className: PropTypes.string
 }
 
 export default TextField

@@ -1,7 +1,4 @@
-.root {
-    display: flex;
-    flex-direction: column;
-}
+.root {}
 
 .input {
     width: 100%;
@@ -26,10 +23,19 @@
     border: 1px solid red;
 }
 
+.input:hover {
+    border: 1px solid #FAC213;
+}
+
 .errorMessage {
     width: 100%;
     color: red;
     padding-left: 12px;
-    font-size: 10px;
+    font-size: 12px;
     margin-top: 8px;
+    margin-bottom: 12px;
+}
+
+.wrapperTextField {
+    margin-bottom: 20px;
 }

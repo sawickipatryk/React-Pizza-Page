@@ -10,6 +10,7 @@ import { useNavigate } from 'react-router-dom'
 import TextField from '../TextField'
 import Button from '../Button'
 import Typography from '../Typography'
+import isEmail from 'validator/lib/isEmail'
 
 export const SignUpForm = (props) => {
   const {
@@ -21,26 +22,39 @@ export const SignUpForm = (props) => {
 
   const {
     register,
+    watch,
     formState: { errors }
   } = methods
+
+  const password = watch('password')
 
   const registeredEmailProps = register('email', {
     required: {
       value: true,
       message: 'email is required'
-    }
+    },
+    validate: (email) => isEmail(email) || 'Wrong Email'
   })
   const registeredPasswordProps = register('password', {
     required: {
       value: true,
       message: 'password is required'
+    },
+    minLength: {
+      value: 6,
+      message: 'Password should have 6 characters'
     }
   })
-  const registeredReapeatPasswordProps = register('repeatpassword', {
+  const registeredReapeatPasswordProps = register('repeatPassword', {
     required: {
       value: true,
-      message: 'repeatpassword is required'
-    }
+      message: 'repeatPassword is required'
+    },
+    minLength: {
+      value: 6,
+      message: 'Password should have 6 characters'
+    },
+    validate: (repeatPassword) => repeatPassword === password || 'repeatPassword shoud be the same like password'
   })
 
   const navigate = useNavigate()
@@ -79,7 +93,7 @@ export const SignUpForm = (props) => {
           <TextField
             className={classes.textField}
             placeholder={'Repeat Password'}
-            errorMessage={errors.password && errors.password.message}
+            errorMessage={errors.repeatPassword && errors.repeatPassword.message}
             {... registeredReapeatPasswordProps}
           />
           <Button

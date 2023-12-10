@@ -39,6 +39,10 @@ export const SignInForm = (props) => {
     required: {
       value: true,
       message: 'password is required'
+    },
+    minLength: {
+      value: 6,
+      message: 'Password should have 6 characters'
     }
   })
 

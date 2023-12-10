@@ -3,7 +3,13 @@
 .wrapper {
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
+    width: 450px;
+    height: 450px;
+    border-radius: 5px;
+    background-color: #fff;
+    padding: 10px;
 }
 
 .message {

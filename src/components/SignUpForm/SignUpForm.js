@@ -3,25 +3,21 @@ import PropTypes from 'prop-types'
 
 import classes from './styles.module.css'
 
-import { useNavigate } from 'react-router-dom'
-
 import { useFormContext } from 'react-hook-form'
+
+import { useNavigate } from 'react-router-dom'
 
 import TextField from '../TextField'
 import Button from '../Button'
 import Typography from '../Typography'
 
-export const SignInForm = (props) => {
+export const SignUpForm = (props) => {
   const {
     className,
     ...otherProps
   } = props
 
   const methods = useFormContext()
-
-  const navigate = useNavigate()
-  const onClickBackToMainPage = React.useCallback(() => navigate('/'), [navigate])
-  const onClickSignUp = React.useCallback(() => navigate('/signup'), [navigate])
 
   const {
     register,
@@ -40,6 +36,16 @@ export const SignInForm = (props) => {
       message: 'password is required'
     }
   })
+  const registeredReapeatPasswordProps = register('repeatpassword', {
+    required: {
+      value: true,
+      message: 'repeatpassword is required'
+    }
+  })
+
+  const navigate = useNavigate()
+  const onClickBackToMainPage = React.useCallback(() => navigate('/'), [navigate])
+  const onClickSignIn = React.useCallback(() => navigate('/signin'), [navigate])
 
   return (
     <div
@@ -56,7 +62,7 @@ export const SignInForm = (props) => {
             className={classes.h2}
             variant={'h2'}
           >
-            SIGN IN
+            SIGN UP
           </Typography>
           <TextField
             className={classes.textField}
@@ -70,21 +76,27 @@ export const SignInForm = (props) => {
             errorMessage={errors.password && errors.password.message}
             {...registeredPasswordProps}
           />
+          <TextField
+            className={classes.textField}
+            placeholder={'Repeat Password'}
+            errorMessage={errors.password && errors.password.message}
+            {... registeredReapeatPasswordProps}
+          />
           <Button
             className={classes.button}
             variant={'contained'}
             type={'submit'}
           >
-            Sign In
+            SIGN UP
           </Button>
         </div>
       </form>
       <Button
-        onClick={onClickSignUp}
+        onClick={onClickSignIn}
         className={classes.button}
         variant={'contained'}
       >
-        Create Account
+        SIGN IN
       </Button>
       <Button
         onClick={onClickBackToMainPage}
@@ -97,8 +109,8 @@ export const SignInForm = (props) => {
   )
 }
 
-SignInForm.propTypes = {
+SignUpForm.propTypes = {
   className: PropTypes.string
 }
 
-export default SignInForm
+export default SignUpForm

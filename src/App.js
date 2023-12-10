@@ -20,7 +20,8 @@ import Loader from './components/Loader'
 import handleAsyncAction from './handleAsyncAction'
 import FullPageLayout from './components/FullPageLayout'
 import Message from './components/Message'
-import SignInPage from './pages/SignInPage/SignInPage'
+import SignInPage from './pages/SignInPage'
+import SignUpPage from './pages/SignUpPage'
 
 export const App = () => {
   const {
@@ -112,6 +113,12 @@ export const App = () => {
           path={'/signin'}
           element={
             <SignInPage />
+      }
+        />
+        <Route
+          path={'/signup'}
+          element={
+            <SignUpPage />
       }
         />
       </Routes>

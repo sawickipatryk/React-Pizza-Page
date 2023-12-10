@@ -1,0 +1,17 @@
+.root {
+    width: 400px;
+}
+
+.button {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.wrapper {
+    text-align: center;
+}
+
+.h2 {
+    margin-bottom: 50px;
+    display: block;
+}

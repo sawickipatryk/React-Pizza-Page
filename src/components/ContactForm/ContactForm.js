@@ -9,10 +9,14 @@ import isEmail from 'validator/lib/isEmail'
 import TextField from '../TextField'
 import Textarea from '../Textarea'
 import Button from '../Button'
+import Message from '../Message'
+import FullPageLayout from '../FullPageLayout'
 
 export const ContactForm = (props) => {
   const {
     className,
+    popUp,
+    setPopUp,
     ...otherProps
   } = props
 
@@ -49,51 +53,72 @@ export const ContactForm = (props) => {
     }
   })
 
+  const dismissMessage = () => {
+    setPopUp(false)
+  }
+
   return (
-    <form
-      className={`${classes.root}${className ? ` ${className}` : ''}`}
-      {...otherProps}
-    >
-      <div
-        className={classes.wrapper}
+    <>
+      {
+    (popUp)
+      ? (
+        <FullPageLayout>
+          <Message
+            onButtonClick={dismissMessage}
+            iconVariant={'error'}
+            message={'Check your email box'}
+          />
+        </FullPageLayout>
+        )
+      : null
+  }
+      <form
+        className={`${classes.root}${className ? ` ${className}` : ''}`}
+        {...otherProps}
       >
-        <TextField
-          className={classes.textField}
-          placeholder={'Name'}
-          errorMessage={errors.name && errors.name.message}
-          {...registeredNameProps}
-        />
-        <TextField
-          className={classes.textField}
-          placeholder={'E-mail'}
-          errorMessage={errors.email && errors.email.message}
-          {...registeredEmailProps}
-        />
-        <TextField
-          className={classes.textField}
-          placeholder={'Subject'}
-          errorMessage={errors.subject && errors.subject.message}
-          {...registeredSubjectProps}
-        />
-        <Textarea
-          className={classes.textField}
-          placeholder={'Write your message here'}
-          errorMessage={errors.textarea && errors.textarea.message}
-          {...registeredTextareaProps}
-        />
-        <Button
-          variant={'contained'}
-          type={'submit'}
+        <div
+          className={classes.wrapper}
         >
-          SEND
-        </Button>
-      </div>
-    </form>
+          <TextField
+            className={classes.textField}
+            placeholder={'Name'}
+            errorMessage={errors.name && errors.name.message}
+            {...registeredNameProps}
+          />
+          <TextField
+            className={classes.textField}
+            placeholder={'E-mail'}
+            errorMessage={errors.email && errors.email.message}
+            {...registeredEmailProps}
+          />
+          <TextField
+            className={classes.textField}
+            placeholder={'Subject'}
+            errorMessage={errors.subject && errors.subject.message}
+            {...registeredSubjectProps}
+          />
+          <Textarea
+            className={classes.textField}
+            placeholder={'Write your message here'}
+            errorMessage={errors.textarea && errors.textarea.message}
+            {...registeredTextareaProps}
+          />
+          <Button
+            variant={'contained'}
+            type={'submit'}
+          >
+            SEND
+          </Button>
+        </div>
+      </form>
+    </>
   )
 }
 
 ContactForm.propTypes = {
-  className: PropTypes.string
+  className: PropTypes.string,
+  popUp: PropTypes.bool,
+  setPopUp: PropTypes.func.isRequired
 }
 
 export default ContactForm

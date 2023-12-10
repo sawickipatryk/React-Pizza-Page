@@ -19,13 +19,14 @@ import ContactForm from '../../components/ContactForm'
 
 export const ContactPage = (props) => {
   const [toggleMenu, setToggleMenu] = React.useState(false)
+  const [popUp, setPopUp] = React.useState(false)
   const {
     className,
     ...otherProps
   } = props
 
   const methods = useForm()
-  const { handleSubmit } = methods
+  const { handleSubmit, reset } = methods
 
   const openMenu = () => {
     setToggleMenu(!toggleMenu)
@@ -33,6 +34,8 @@ export const ContactPage = (props) => {
   const onSubmit = handleSubmit(
     (data, e) => {
       console.log('valid', data)
+      setPopUp(true)
+      reset()
     },
     (errors, e) => {
       console.log('Error', errors)
@@ -148,6 +151,8 @@ export const ContactPage = (props) => {
               {...methods}
             >
               <ContactForm
+                popUp={popUp}
+                setPopUp={setPopUp}
                 onSubmit={onSubmit}
               />
             </FormProvider>

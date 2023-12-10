@@ -104,6 +104,7 @@ export const ContactForm = (props) => {
             {...registeredTextareaProps}
           />
           <Button
+            className={classes.button}
             variant={'contained'}
             type={'submit'}
           >

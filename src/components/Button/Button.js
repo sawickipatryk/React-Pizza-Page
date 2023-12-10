@@ -32,7 +32,7 @@ export const Button = (props) => {
 Button.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
-  variant: PropTypes.oneOf(['contained', 'toggle', 'menu'])
+  variant: PropTypes.oneOf(['contained', 'toggle', 'menu', 'text'])
 }
 
 export default Button

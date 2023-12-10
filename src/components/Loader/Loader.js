@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import classes from './styles.module.css'
-import Typography from '../Typography'
+import Spinner from './Spinner'
 
 export const Loader = (props) => {
   const {
@@ -15,11 +15,9 @@ export const Loader = (props) => {
       className={`${classes.root}${className ? ` ${className}` : ''}`}
       {...otherProps}
     >
-      <Typography
-        variant={'h1'}
-      >
-        LOADING
-      </Typography>
+      <Spinner
+        className={classes.spinner}
+      />
     </div>
   )
 }

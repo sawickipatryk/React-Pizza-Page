@@ -2,9 +2,20 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import classes from './styles.module.css'
+import {
+  createActionSetIsUserLoggedId,
+  createActionSetUserEmail
+} from '../../state/auth'
+
+import { createActionSetInfo } from '../../state/loaders'
+
+import { useDispatch } from 'react-redux'
 
 import { useForm, FormProvider } from 'react-hook-form'
 
+import { signIn, getUserData } from '../../auth'
+
+import handleAsyncAction from '../../handleAsyncAction'
 import AuthLayout from '../../layouts/AuthLayout'
 import SignInForm from '../../components/SignInForm/SignInForm'
 
@@ -15,17 +26,19 @@ export const SignInPage = (props) => {
   } = props
 
   const methods = useForm()
-  const { handleSubmit, reset } = methods
+  const { handleSubmit } = methods
+  const dispatch = useDispatch()
 
-  const onSubmit = handleSubmit(
-    (data, e) => {
-      console.log('valid', data)
-      reset()
-    },
-    (errors, e) => {
-      console.log('Error', errors)
-    }
-  )
+  const onClickLogin = React.useCallback(async (email, password) => {
+    handleAsyncAction(async () => {
+      await signIn(email, password)
+      dispatch(createActionSetInfo('You are logged in!'))
+      const user = await getUserData()
+      console.log(user)
+      dispatch(createActionSetIsUserLoggedId())
+      dispatch(createActionSetUserEmail(user.email))
+    })
+  }, [dispatch])
 
   return (
     <div
@@ -39,7 +52,7 @@ export const SignInPage = (props) => {
             {...methods}
           >
             <SignInForm
-              onSubmit={onSubmit}
+              onSubmit={handleSubmit((data) => onClickLogin(data.email, data.password))}
             />
           </FormProvider>
       }

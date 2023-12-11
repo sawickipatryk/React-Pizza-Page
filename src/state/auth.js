@@ -15,35 +15,35 @@ export const createActionSetIsUserLoggedId = () => ({
 export const createActionRemoveIsUserLoggedId = () => ({
   type: REMOVE_IS_USER_LOGGED_IN
 })
-export const createActionSetUserId = ({ message }) => ({
+export const createActionSetUserId = (message) => ({
   type: SET_IS_USER_LOGGED_IN,
   payload: { message }
 })
-export const createActionRemoveUserId = ({ message }) => ({
+export const createActionRemoveUserId = (message) => ({
   type: REMOVE_IS_USER_LOGGED_IN,
   payload: { message }
 })
-export const createActionSetUserDisplayName = ({ message }) => ({
+export const createActionSetUserDisplayName = (message) => ({
   type: SET_USER_DISPLAY_NAME,
   payload: { message }
 })
-export const createActionRemoveUserDisplayName = ({ message }) => ({
+export const createActionRemoveUserDisplayName = (message) => ({
   type: REMOVE_USER_DISPLAY_NAME,
   payload: { message }
 })
-export const createActionSetUserEmail = ({ message }) => ({
+export const createActionSetUserEmail = (message) => ({
   type: SET_USER_EMAIL,
   payload: { message }
 })
-export const createActionRemoveUserEmail = ({ message }) => ({
+export const createActionRemoveUserEmail = (message) => ({
   type: REMOVE_USER_EMAIL,
   payload: { message }
 })
-export const createActionSetUserAvatar = ({ message }) => ({
+export const createActionSetUserAvatar = (message) => ({
   type: SET_USER_AVATAR,
   payload: { message }
 })
-export const createActionRemoveUserAvatar = ({ message }) => ({
+export const createActionRemoveUserAvatar = (message) => ({
   type: REMOVE_USER_AVATAR,
   payload: { message }
 })
@@ -112,3 +112,4 @@ export const reducer = (state = initialState, action) => {
       return state
   }
 }
+export default reducer

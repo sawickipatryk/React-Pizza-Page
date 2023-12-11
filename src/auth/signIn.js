@@ -18,7 +18,6 @@ export const signIn = (email, password) => {
   ).then(data => {
     setIdToken(data.idToken)
     setRefreshToken(data.refreshToken)
-
     return data
   })
 }

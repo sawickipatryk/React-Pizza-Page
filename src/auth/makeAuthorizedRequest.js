@@ -1,6 +1,6 @@
 import { makeRequest } from './makeRequest'
 import { getIdToken } from './token'
-import { refreshTokens } from './refreshTokens'
+import refreshTokens from './refreshTokens'
 
 export const makeAuthorizedRequest = (url, options) => {
   const token = getIdToken()

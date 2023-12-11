@@ -1,4 +1,4 @@
-import { refreshTokens } from './refreshTokens'
+import refreshTokens from './refreshTokens'
 
 export const checkIfUserIsLoggedIn = () => {
   return refreshTokens()

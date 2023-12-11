@@ -4,6 +4,8 @@ import { Routes, Route } from 'react-router-dom'
 
 import { useSelector, useDispatch } from 'react-redux'
 
+import { createActionRemoveInfo } from './state/loaders'
+
 import {
   createActionSetMenu
 }
@@ -31,10 +33,18 @@ export const App = () => {
   const dispatch = useDispatch()
 
   const {
+    isUserLoggedIn
+  } = useSelector((state) => state.auth)
+
+  const {
     isLoading,
     isInfoDisplayed,
     infoMessage
   } = useSelector((state) => state.loaders)
+
+  const dismissMessage = React.useCallback(() => {
+    dispatch(createActionRemoveInfo())
+  }, [dispatch])
 
   React.useEffect(() => {
     handleAsyncAction(async () => {
@@ -68,6 +78,7 @@ export const App = () => {
             variant={'info'}
           >
             <Message
+              onButtonClick={dismissMessage}
               iconVariant={'info'}
               message={infoMessage}
             />
@@ -75,6 +86,11 @@ export const App = () => {
 
           )
         : null
+      }
+      {
+        (isUserLoggedIn)
+          ? <h1>LOGGED</h1>
+          : null
       }
 
       <Routes>

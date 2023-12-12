@@ -3,9 +3,7 @@ import PropTypes from 'prop-types'
 
 import classes from './styles.module.css'
 
-import { useSelector, useDispatch } from 'react-redux'
-
-import { createActionRemoveError } from '../../state/loaders'
+import { useSelector } from 'react-redux'
 
 import Container from '../Container'
 import Button from '../Button'
@@ -19,19 +17,14 @@ export const Menu = (props) => {
   const {
     className,
     menu,
+    dismissMessage,
     ...otherProps
   } = props
-
-  const dispatch = useDispatch()
 
   const {
     hasError,
     errorMessage
   } = useSelector((state) => state.loaders)
-
-  const dismissMessage = React.useCallback(() => {
-    dispatch(createActionRemoveError())
-  })
 
   return (
     <div
@@ -112,7 +105,8 @@ export const Menu = (props) => {
 
 Menu.propTypes = {
   className: PropTypes.string,
-  menu: PropTypes.array
+  menu: PropTypes.array,
+  dismissMessage: PropTypes.func.isRequired
 }
 
 export default Menu

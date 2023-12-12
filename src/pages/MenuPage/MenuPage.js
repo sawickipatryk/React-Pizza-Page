@@ -1,6 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import { createActionRemoveError } from '../../state/loaders'
+
+import { useDispatch } from 'react-redux'
+
 import classes from './styles.module.css'
 import img from './bgcHeader.png'
 import img1 from './bacgroundHeader3.png'
@@ -18,14 +22,21 @@ import Menu from '../../components/Menu'
 export const MenuPage = (props) => {
   const [toggleMenu, setToggleMenu] = React.useState(false)
 
-  const openMenu = () => {
-    setToggleMenu(!toggleMenu)
-  }
   const {
     className,
     menu,
     ...otherProps
   } = props
+
+  const dispatch = useDispatch()
+
+  const openMenu = () => {
+    setToggleMenu(!toggleMenu)
+  }
+
+  const dismissMessage = React.useCallback(() => {
+    dispatch(createActionRemoveError())
+  }, [dispatch])
 
   return (
     <div
@@ -134,6 +145,7 @@ export const MenuPage = (props) => {
             />
             <Menu
               menu={menu}
+              dismissMessage={dismissMessage}
             />
           </>
           }

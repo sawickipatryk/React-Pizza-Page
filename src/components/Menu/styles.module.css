@@ -26,6 +26,13 @@
     padding: 40px 12px;
 }
 
+.button {}
+
+.active {
+    composes: button;
+    background-color: #FAC213;
+}
+
 .buttonContainer {
     margin-bottom: 30px;
     justify-content: center;

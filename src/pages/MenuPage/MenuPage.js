@@ -21,6 +21,8 @@ import Menu from '../../components/Menu'
 
 export const MenuPage = (props) => {
   const [toggleMenu, setToggleMenu] = React.useState(false)
+  const [activeButton, setActiveButton] = React.useState('all')
+  const [filter, setFilter] = React.useState('all')
 
   const {
     className,
@@ -37,6 +39,29 @@ export const MenuPage = (props) => {
   const dismissMessage = React.useCallback(() => {
     dispatch(createActionRemoveError())
   }, [dispatch])
+
+  const filteredMenu = menu && menu.filter((item) => {
+    if (filter === 'all') return true
+
+    if (filter === 'drink') return item.type === 'drink'
+
+    if (filter === 'pizza') return item.type === 'pizza'
+
+    return false
+  })
+
+  const onClickAllButton = () => {
+    setFilter('all')
+    setActiveButton('all')
+  }
+  const onClickDrinkButton = () => {
+    setFilter('drink')
+    setActiveButton('drink')
+  }
+  const onClickPizzaButton = () => {
+    setFilter('pizza')
+    setActiveButton('pizza')
+  }
 
   return (
     <div
@@ -144,8 +169,12 @@ export const MenuPage = (props) => {
               }
             />
             <Menu
-              menu={menu}
+              menu={filteredMenu}
               dismissMessage={dismissMessage}
+              onClickAllButton={onClickAllButton}
+              onClickDrinkButton={onClickDrinkButton}
+              onClickPizzaButton={onClickPizzaButton}
+              activeButton={activeButton}
             />
           </>
           }

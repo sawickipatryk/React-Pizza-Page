@@ -18,6 +18,10 @@ export const Menu = (props) => {
     className,
     menu,
     dismissMessage,
+    onClickAllButton,
+    onClickDrinkButton,
+    onClickPizzaButton,
+    activeButton,
     ...otherProps
   } = props
 
@@ -48,19 +52,22 @@ export const Menu = (props) => {
           className={classes.buttonContainer}
         >
           <Button
-            className={classes.button}
+            onClick={onClickAllButton}
+            className={`${classes.button}${activeButton === 'all' ? ` ${classes.active}` : ''}`}
             variant={'menu'}
           >
             ALL
           </Button>
           <Button
-            className={classes.button}
+            onClick={onClickDrinkButton}
+            className={`${classes.button}${activeButton === 'drink' ? ` ${classes.active}` : ''}`}
             variant={'menu'}
           >
             DRINK
           </Button>
           <Button
-            className={classes.button}
+            onClick={onClickPizzaButton}
+            className={`${classes.button}${activeButton === 'pizza' ? ` ${classes.active}` : ''}`}
             variant={'menu'}
           >
             PIZZA
@@ -84,18 +91,19 @@ export const Menu = (props) => {
             />
           </FullPageLayout>
           )
-        : menu && menu.map((item) => {
-          return (
-            <MenuItem
-              key={item.id}
-              id={item.id}
-              name={item.name}
-              type={item.type}
-              price={item.price}
-              description={item.text}
-            />
-          )
-        })
+        : menu && menu
+          .map((item) => {
+            return (
+              <MenuItem
+                key={item.id}
+                id={item.id}
+                name={item.name}
+                type={item.type}
+                price={item.price}
+                description={item.text}
+              />
+            )
+          })
       }
         </Container>
       </Container>
@@ -105,8 +113,12 @@ export const Menu = (props) => {
 
 Menu.propTypes = {
   className: PropTypes.string,
+  activeButton: PropTypes.string,
   menu: PropTypes.array,
-  dismissMessage: PropTypes.func.isRequired
+  dismissMessage: PropTypes.func.isRequired,
+  onClickAllButton: PropTypes.func.isRequired,
+  onClickDrinkButton: PropTypes.func.isRequired,
+  onClickPizzaButton: PropTypes.func.isRequired
 }
 
 export default Menu

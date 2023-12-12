@@ -6,6 +6,8 @@ import Typography from '../Typography'
 import Avatar from '../Avatar'
 import Button from '../Button'
 
+import { useSelector } from 'react-redux'
+
 export const UserDropDown = (props) => {
   const {
     className,
@@ -13,6 +15,12 @@ export const UserDropDown = (props) => {
     contentList,
     ...otherProps
   } = props
+
+  const {
+    userDisplayName,
+    userEmail,
+    userAvatar
+  } = useSelector((state) => state.auth)
 
   return (
     <div
@@ -26,7 +34,9 @@ export const UserDropDown = (props) => {
         <div
           className={classes.avatarContainer}
         >
-          <Avatar/>
+          <Avatar
+            src={userAvatar}
+          />
         </div>
         <div
           className={classes.textContainer}
@@ -35,17 +45,18 @@ export const UserDropDown = (props) => {
             className={classes.text}
             variant={'text'}
           >
-            Email
+            {userEmail}
           </Typography>
           <Typography
             className={classes.text}
             variant={'text'}
           >
-            DisplayName
+            {userDisplayName}
           </Typography>
         </div>
 
         <Button
+          onClick={onClickLogOutButton}
           className={classes.button}
           variant={'menu'}
         >

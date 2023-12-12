@@ -16,11 +16,11 @@ export const createActionRemoveIsUserLoggedId = () => ({
   type: REMOVE_IS_USER_LOGGED_IN
 })
 export const createActionSetUserId = (message) => ({
-  type: SET_IS_USER_LOGGED_IN,
+  type: SET_USER_ID,
   payload: { message }
 })
 export const createActionRemoveUserId = (message) => ({
-  type: REMOVE_IS_USER_LOGGED_IN,
+  type: REMOVE_USER_ID,
   payload: { message }
 })
 export const createActionSetUserDisplayName = (message) => ({

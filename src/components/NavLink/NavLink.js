@@ -10,6 +10,7 @@ export const NavLink = (props) => {
     className,
     children,
     to,
+    onButtonClick,
     ...otherProps
   } = props
 
@@ -19,6 +20,7 @@ export const NavLink = (props) => {
       {...otherProps}
     >
       <RouterNavLink
+        onClick={onButtonClick}
         className={classes.navLink}
         to={to}
       >
@@ -31,7 +33,8 @@ export const NavLink = (props) => {
 NavLink.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
-  to: PropTypes.string.isRequired
+  to: PropTypes.string,
+  onButtonClick: PropTypes.func
 }
 
 export default NavLink

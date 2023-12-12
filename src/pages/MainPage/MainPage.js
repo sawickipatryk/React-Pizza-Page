@@ -1,8 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import { useSelector, useDispatch } from 'react-redux'
+
+import { createActionSetInfo } from '../../state/loaders'
+
 import classes from './styles.module.css'
 import pizzaHero from './header.png'
+
+import { logOut } from '../../auth'
 
 import MainLayout from '../../layouts/MainLayout'
 import NavLink from '../../components/NavLink'
@@ -19,14 +25,25 @@ import Button from '../../components/Button'
 export const MainPage = (props) => {
   const [toggleMenu, setToggleMenu] = React.useState(false)
 
+  const dispatch = useDispatch()
+
   const openMenu = () => {
     setToggleMenu(!toggleMenu)
   }
 
   const {
+    isUserLoggedIn
+  } = useSelector((state) => state.auth)
+
+  const {
     className,
     ...otherProps
   } = props
+
+  const onClickLogOut = async () => {
+    await logOut()
+    dispatch(createActionSetInfo('You are logged out!'))
+  }
 
   return (
     <div
@@ -80,12 +97,28 @@ export const MainPage = (props) => {
               >
                 CONTACT
               </NavLink>
-              <NavLink
-                className={classes.navLink}
-                to={'/signin'}
-              >
-                SIGN IN
-              </NavLink>
+              {
+      (
+        isUserLoggedIn
+      )
+        ? (
+          <NavLink
+            onButtonClick={onClickLogOut}
+            className={classes.navLink}
+          >
+            LOG OUT
+          </NavLink>
+          )
+        : (
+          <NavLink
+            className={classes.navLink}
+            to={'/signin'}
+          >
+            SIGN IN
+          </NavLink>
+          )
+      }
+
             </ul>
             <ToggleMenu
               openMenu={openMenu}

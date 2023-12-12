@@ -21,9 +21,11 @@ import BestPizza from '../../components/BestPizza'
 import Delivery from '../../components/Delivery'
 import Typography from '../../components/Typography'
 import Button from '../../components/Button'
+import UserDropDown from '../../components/UserDropDown'
 
 export const MainPage = (props) => {
   const [toggleMenu, setToggleMenu] = React.useState(false)
+  const [isuserDropDownOpen, setIsuserDropDownOpen] = React.useState(false)
 
   const dispatch = useDispatch()
 
@@ -102,12 +104,25 @@ export const MainPage = (props) => {
         isUserLoggedIn
       )
         ? (
-          <NavLink
-            onButtonClick={onClickLogOut}
-            className={classes.navLink}
-          >
-            LOG OUT
-          </NavLink>
+          <UserDropDown
+            onClickLogOutButton={onClickLogOut}
+            onClick = {() => { setIsuserDropDownOpen(!isuserDropDownOpen) }}
+            contentList={
+              isuserDropDownOpen
+                ? (
+                  <ul
+                    className={classes.navLinksDropDown}
+                  >
+                    <NavLink
+                      className={classes.navLinkDropDown}
+                      onButtonClick={onClickLogOut}
+                    >
+                      Log Out
+                    </NavLink>
+                  </ul>
+                  )
+                : null}
+          />
           )
         : (
           <NavLink

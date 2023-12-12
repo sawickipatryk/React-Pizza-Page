@@ -142,9 +142,13 @@
         top: 0;
         left: 0;
         background-color: transparent;
-        width: 50%;
+        width: 65%;
         height: auto;
         padding: 0px
+    }
+
+    .navLinkDropDown a {
+        color: black;
     }
 
     .navLink {

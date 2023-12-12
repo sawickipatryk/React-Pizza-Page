@@ -6,7 +6,10 @@ import { store } from '../store'
 
 import {
   createActionSetIsUserLoggedId,
-  createActionSetUserEmail
+  createActionSetUserEmail,
+  createActionSetUserDisplayName,
+  createActionSetUserAvatar,
+  createActionSetUserId
 } from '../state/auth'
 
 const GET_USER_DATA_URL = 'https://identitytoolkit.googleapis.com/v1/accounts:lookup?key=' + FIREBASE_APP_KEY
@@ -28,6 +31,9 @@ export const getUserData = () => {
     const user = data && data.users && data.users[0]
     store.dispatch(createActionSetIsUserLoggedId())
     store.dispatch(createActionSetUserEmail(user.email))
+    store.dispatch(createActionSetUserId(user.localId))
+    store.dispatch(createActionSetUserDisplayName(user.displayName === undefined && 'Your Name'))
+    store.dispatch(createActionSetUserAvatar(user.photoUrl))
     return data && data.users && data.users[0]
   }
   )

@@ -18,7 +18,6 @@ export const signUp = (email, password) => {
   ).then(data => {
     setIdToken(data.idToken)
     setRefreshToken(data.refreshToken)
-    console.log(data)
     return data
   })
 }

@@ -2,10 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import classes from './styles.module.css'
-import {
-  createActionSetIsUserLoggedId,
-  createActionSetUserEmail
-} from '../../state/auth'
 
 import { createActionSetInfo } from '../../state/loaders'
 
@@ -33,10 +29,7 @@ export const SignInPage = (props) => {
     handleAsyncAction(async () => {
       await signIn(email, password)
       dispatch(createActionSetInfo('You are logged in!'))
-      const user = await getUserData()
-      console.log(user)
-      dispatch(createActionSetIsUserLoggedId())
-      dispatch(createActionSetUserEmail(user.email))
+      await getUserData()
     })
   }, [dispatch])
 

@@ -33,12 +33,10 @@ export const ContactPage = (props) => {
   }
   const onSubmit = handleSubmit(
     (data, e) => {
-      console.log('valid', data)
       setPopUp(true)
       reset()
     },
     (errors, e) => {
-      console.log('Error', errors)
     }
   )
 

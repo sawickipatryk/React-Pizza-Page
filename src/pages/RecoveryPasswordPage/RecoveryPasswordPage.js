@@ -19,11 +19,9 @@ export const RecoveryPasswordPage = (props) => {
 
   const onSubmit = handleSubmit(
     (data, e) => {
-      console.log('valid', data)
       reset()
     },
     (errors, e) => {
-      console.log('Error', errors)
     }
   )
 

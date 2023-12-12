@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useNavigate } from 'react-router-dom'
 
 import { useSelector, useDispatch } from 'react-redux'
 
@@ -25,12 +25,15 @@ import Message from './components/Message'
 import SignInPage from './pages/SignInPage'
 import SignUpPage from './pages/SignUpPage'
 import RecoveryPasswordPage from './pages/RecoveryPasswordPage'
+import { checkIfUserIsLoggedIn, getUserData } from './auth'
 
 export const App = () => {
   const {
     data
   } = useSelector((state) => state.menu)
+
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const {
     isUserLoggedIn
@@ -44,10 +47,15 @@ export const App = () => {
 
   const dismissMessage = React.useCallback(() => {
     dispatch(createActionRemoveInfo())
-  }, [dispatch])
+    navigate('/')
+  }, [dispatch, navigate])
 
   React.useEffect(() => {
     handleAsyncAction(async () => {
+      const userIsLoggedIn = await checkIfUserIsLoggedIn()
+      if (userIsLoggedIn) {
+        await getUserData()
+      }
       const menu = await getAll()
       dispatch(createActionSetMenu(menu))
     })
@@ -88,63 +96,103 @@ export const App = () => {
         : null
       }
       {
+          (!isUserLoggedIn)
+            ? (
+              <Routes>
+                <Route
+                  path={'*'}
+                  element={
+                    <MainPage/>
+          }
+                />
+                <Route
+                  path={'/menu'}
+                  element={
+                    <MenuPage
+                      menu={data}
+                    />
+          }
+                />
+                <Route
+                  path={'/aboutus'}
+                  element={
+                    <AboutPage />
+          }
+                />
+                <Route
+                  path={'/gallery'}
+                  element={
+                    <GalleryPage />
+          }
+                />
+                <Route
+                  path={'/contact'}
+                  element={
+                    <ContactPage />
+          }
+                />
+                <Route
+                  path={'/signin'}
+                  element={
+                    <SignInPage />
+          }
+                />
+                <Route
+                  path={'/signup'}
+                  element={
+                    <SignUpPage />
+          }
+                />
+                <Route
+                  path={'/recoverypassword'}
+                  element={
+                    <RecoveryPasswordPage />
+          }
+                />
+              </Routes>
+              )
+            : null
+}
+      {
         (isUserLoggedIn)
-          ? <h1>LOGGED</h1>
+          ? (
+            <Routes>
+              <Route
+                path={'*'}
+                element={
+                  <MainPage/>
+        }
+              />
+              <Route
+                path={'/menu'}
+                element={
+                  <MenuPage
+                    menu={data}
+                  />
+        }
+              />
+              <Route
+                path={'/aboutus'}
+                element={
+                  <AboutPage />
+        }
+              />
+              <Route
+                path={'/gallery'}
+                element={
+                  <GalleryPage />
+        }
+              />
+              <Route
+                path={'/contact'}
+                element={
+                  <ContactPage />
+        }
+              />
+            </Routes>
+            )
           : null
       }
-
-      <Routes>
-        <Route
-          path={'*'}
-          element={
-            <MainPage/>
-      }
-        />
-        <Route
-          path={'/menu'}
-          element={
-            <MenuPage
-              menu={data}
-            />
-      }
-        />
-        <Route
-          path={'/aboutus'}
-          element={
-            <AboutPage />
-      }
-        />
-        <Route
-          path={'/gallery'}
-          element={
-            <GalleryPage />
-      }
-        />
-        <Route
-          path={'/contact'}
-          element={
-            <ContactPage />
-      }
-        />
-        <Route
-          path={'/signin'}
-          element={
-            <SignInPage />
-      }
-        />
-        <Route
-          path={'/signup'}
-          element={
-            <SignUpPage />
-      }
-        />
-        <Route
-          path={'/recoverypassword'}
-          element={
-            <RecoveryPasswordPage />
-      }
-        />
-      </Routes>
 
     </>
   )

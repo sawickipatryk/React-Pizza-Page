@@ -1,1 +1,176 @@
-.root {}
+.root {
+    position: relative;
+}
+
+.navContainer {
+    padding: 0 12px;
+}
+
+
+.navLinks {
+    display: none;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    position: absolute;
+    top: 62px;
+    left: 0;
+    background-color: #fff;
+    width: 100%;
+    height: auto;
+    padding: 10px 20px;
+}
+
+.open {
+    composes: navLinks;
+    display: flex;
+}
+
+.navLink {
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    width: 100%;
+}
+
+.navLink a {
+    color: black;
+    font-weight: 500;
+    display: inline-block;
+    padding: 20px 0px;
+    width: 100%;
+}
+
+.navContainer {
+    justify-content: space-between;
+}
+
+.logo {
+    width: 135px;
+}
+
+.toggle svg {
+    color: black;
+}
+
+.pizzaName {
+    margin-bottom: 30px;
+    display: block;
+}
+
+.header {
+    font-size: 17px;
+    color: black;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(245, 245, 245, 1);
+    box-shadow: 1px 1px 20px 0 rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+}
+
+.buttonsContainer {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.buttonSize {
+    text-align: center;
+    height: 90px;
+    width: 90px;
+    color: black;
+    background-color: rgba(250, 250, 250, 1);
+    box-shadow: 1px 1px 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+.chosen {
+    background-color: #FAC213;
+    color: white;
+}
+
+.img {
+    display: flex;
+}
+
+.descriptionContainer {
+    padding: 10px;
+}
+
+@media screen and (min-width:768px) {
+    .background {
+        height: 80vh;
+    }
+
+    .logo {
+        width: 155px;
+    }
+
+    .footerContainer {
+        flex-direction: row;
+        align-items: flex-start !important;
+    }
+
+    .socialsContainer {
+        margin: 0px !important;
+    }
+}
+
+@media screen and (min-width:1200px) {
+    .toggle {
+        display: none;
+    }
+
+    .navLinks {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: row;
+        position: relative;
+        top: 0;
+        left: 0;
+        background-color: transparent;
+        width: 65%;
+        height: auto;
+        padding: 0px
+    }
+
+    .navLinkDropDown a {
+        color: black;
+        width: 100%;
+        display: block;
+    }
+
+    .navLink {
+        border-bottom: none;
+        text-align: center;
+    }
+
+    .navLink a {
+        color: black;
+        padding: 25px 0px;
+    }
+
+    .container {
+        gap: 50px;
+    }
+
+
+    .leftContainer {
+        width: 45%;
+        position: relative;
+    }
+
+    .pizzaHero {
+        display: block;
+        width: 100%;
+    }
+
+}

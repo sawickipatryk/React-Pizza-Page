@@ -24,6 +24,7 @@ import FullPageLayout from './components/FullPageLayout'
 import Message from './components/Message'
 import SignInPage from './pages/SignInPage'
 import SignUpPage from './pages/SignUpPage'
+import PageItem from './pages/PageItem'
 import RecoveryPasswordPage from './pages/RecoveryPasswordPage'
 import { checkIfUserIsLoggedIn, getUserData } from './auth'
 
@@ -114,6 +115,12 @@ export const App = () => {
           }
                 />
                 <Route
+                  path={'/menu/:itemId'}
+                  element={
+                    <PageItem/>
+                  }
+                />
+                <Route
                   path={'/aboutus'}
                   element={
                     <AboutPage />
@@ -170,6 +177,12 @@ export const App = () => {
                     menu={data}
                   />
         }
+              />
+              <Route
+                path={'/menu/:itemId'}
+                element={
+                  <PageItem/>
+                  }
               />
               <Route
                 path={'/aboutus'}

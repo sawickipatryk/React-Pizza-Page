@@ -10,6 +10,7 @@
     transform: rotate(-20deg);
     filter: opacity(5%);
     width: 200px;
+    z-index: -1;
 }
 
 .imgBackGroundMenuSecond {
@@ -19,6 +20,7 @@
     transform: rotate(-20deg);
     filter: opacity(5%);
     width: 200px;
+    z-index: -1;
 }
 
 .container {
@@ -41,8 +43,10 @@
 
 .menuItemsContainer {
     flex-direction: column;
+    align-items: normal;
     gap: 10px;
 }
+
 
 @media screen and (min-width:768px) {
     .menuItemsContainer {

@@ -11,7 +11,7 @@ export const MenuItem = (props) => {
     name,
     id,
     type,
-    price,
+    prices,
     description,
     onClickViewItem,
     ...otherProps
@@ -30,14 +30,57 @@ export const MenuItem = (props) => {
           variant={'text'}
           className={classes.header}
         >
-          {name}
+          <span
+            className={classes.spanTitle}
+          >NAME
+          </span>
+          <div>
+            {name}
+          </div>
         </Button>
-        <Typography
-          variant={'h4'}
-          className={classes.price}
+        <div
+          className={classes.pricesContainer}
         >
-          {price}
-        </Typography>
+          <Typography
+            variant={'text'}
+            className={classes.price}
+          >
+            <span
+              className={classes.spanTitle}
+            >SMALL
+            </span>
+            <div>
+              { prices.small.price }
+            </div>
+
+          </Typography>
+          <Typography
+            className={classes.price}
+            variant={'text'}
+          >
+            <span
+              className={classes.spanTitle}
+            >MED
+            </span>
+            <div>
+              { prices.medium.price }
+            </div>
+
+          </Typography>
+          <Typography
+            className={classes.price}
+            variant={'text'}
+          >
+            <span
+              className={classes.spanTitle}
+            >LARGE
+            </span>
+            <div>
+              { prices.large.price }
+            </div>
+
+          </Typography>
+        </div>
       </div>
       <div
         className={classes.descriptionContainer}
@@ -58,7 +101,7 @@ MenuItem.propTypes = {
   name: PropTypes.string,
   id: PropTypes.string,
   type: PropTypes.string,
-  price: PropTypes.string,
+  prices: PropTypes.object,
   description: PropTypes.string,
   onClickViewItem: PropTypes.func.isRequired
 }

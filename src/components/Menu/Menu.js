@@ -100,7 +100,7 @@ export const Menu = (props) => {
                 id={item.id}
                 name={item.name}
                 type={item.type}
-                price={item.price}
+                prices={item.prices}
                 description={item.text}
                 onClickViewItem={() => { onClickViewItem(item.id) }}
               />

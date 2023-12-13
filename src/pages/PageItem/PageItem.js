@@ -18,6 +18,7 @@ import ToggleMenu from '../../components/ToggleMenu'
 import UserDropDown from '../../components/UserDropDown'
 import Typography from '../../components/Typography'
 import Button from '../../components/Button'
+import Cart from '../../components/Cart'
 
 export const PageItem = (props) => {
   const [toggleMenu, setToggleMenu] = React.useState(false)
@@ -243,7 +244,7 @@ export const PageItem = (props) => {
           <div
             className={classes.containerCart}
           >
-            <h1>CART</h1>
+            <Cart/>
           </div>
       }
       />

@@ -60,6 +60,7 @@
     padding: 10px;
     display: flex;
     flex-direction: column;
+    max-width: 400px;
 }
 
 .infoContainer {
@@ -140,6 +141,8 @@
     display: none;
 }
 
+
+
 @media screen and (min-width:768px) {
     .background {
         height: 80vh;
@@ -160,15 +163,11 @@
 
     .containerCart {
         display: block;
+        width: 400px;
+        height: 600px;
     }
 
-    .container {
-        width: 60%;
-    }
 
-    .containerCart {
-        width: 40%;
-    }
 
     .imgContainer {
         display: flex;
@@ -235,18 +234,7 @@
     }
 
     .container {
+        max-width: 500px;
         gap: 50px;
     }
-
-
-    .leftContainer {
-        width: 45%;
-        position: relative;
-    }
-
-    .pizzaHero {
-        display: block;
-        width: 100%;
-    }
-
 }

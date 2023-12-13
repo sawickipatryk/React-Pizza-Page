@@ -5,6 +5,8 @@ import { createActionRemoveError } from '../../state/loaders'
 
 import { useDispatch } from 'react-redux'
 
+import { useNavigate } from 'react-router-dom'
+
 import classes from './styles.module.css'
 import img from './bgcHeader.png'
 import img1 from './bacgroundHeader3.png'
@@ -31,6 +33,7 @@ export const MenuPage = (props) => {
   } = props
 
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const openMenu = () => {
     setToggleMenu(!toggleMenu)
@@ -62,6 +65,7 @@ export const MenuPage = (props) => {
     setFilter('pizza')
     setActiveButton('pizza')
   }
+  const onClickViewItem = React.useCallback((itemId) => navigate(`/menu/${itemId}`), [navigate])
 
   return (
     <div
@@ -175,6 +179,7 @@ export const MenuPage = (props) => {
               onClickDrinkButton={onClickDrinkButton}
               onClickPizzaButton={onClickPizzaButton}
               activeButton={activeButton}
+              onClickViewItem={onClickViewItem}
             />
           </>
           }

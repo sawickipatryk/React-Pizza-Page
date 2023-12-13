@@ -22,6 +22,7 @@ export const Menu = (props) => {
     onClickDrinkButton,
     onClickPizzaButton,
     activeButton,
+    onClickViewItem,
     ...otherProps
   } = props
 
@@ -101,6 +102,7 @@ export const Menu = (props) => {
                 type={item.type}
                 price={item.price}
                 description={item.text}
+                onClickViewItem={() => { onClickViewItem(item.id) }}
               />
             )
           })
@@ -118,7 +120,8 @@ Menu.propTypes = {
   dismissMessage: PropTypes.func.isRequired,
   onClickAllButton: PropTypes.func.isRequired,
   onClickDrinkButton: PropTypes.func.isRequired,
-  onClickPizzaButton: PropTypes.func.isRequired
+  onClickPizzaButton: PropTypes.func.isRequired,
+  onClickViewItem: PropTypes.func.isRequired
 }
 
 export default Menu

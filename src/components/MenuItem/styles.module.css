@@ -1,7 +1,7 @@
 .root {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 10px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
@@ -16,6 +16,11 @@
     font-size: 21px;
     color: black;
     text-transform: none;
+    padding: 0;
+}
+
+.header span {
+    font-size: 21px;
 }
 
 @media screen and (min-width:768px) {

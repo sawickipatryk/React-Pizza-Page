@@ -5,6 +5,8 @@ import classes from './styles.module.css'
 import Typography from '../Typography'
 import Button from '../Button'
 
+import pizza from './pizza.png'
+
 export const MenuItem = (props) => {
   const {
     className,
@@ -34,64 +36,78 @@ export const MenuItem = (props) => {
             className={classes.spanTitle}
           >NAME
           </span>
-          <div>
+          <div
+            className={classes.imgContainer}
+          >
             {name}
+            <img
+              className={classes.pizzaImg}
+              src={pizza}
+              alt={'pizza'}
+            />
+
           </div>
         </Button>
         <div
           className={classes.pricesContainer}
         >
-          <Typography
-            variant={'text'}
-            className={classes.price}
+          <div
+            className={classes.spansTitle}
           >
-            <span
-              className={classes.spanTitle}
-            >SMALL
-            </span>
-            <div>
-              { prices.small.price }
-            </div>
+            <Typography
+              variant={'text'}
+              className={classes.price}
+            >
+              <span
+                className={classes.spanTitle}
+              >SMALL
+              </span>
+              <div>
+                { prices.small.price }
+              </div>
 
-          </Typography>
-          <Typography
-            className={classes.price}
-            variant={'text'}
+            </Typography>
+            <Typography
+              className={classes.price}
+              variant={'text'}
+            >
+              <span
+                className={classes.spanTitle}
+              >MED
+              </span>
+              <div>
+                { prices.medium.price }
+              </div>
+
+            </Typography>
+            <Typography
+              className={classes.price}
+              variant={'text'}
+            >
+              <span
+                className={classes.spanTitle}
+              >LARGE
+              </span>
+              <div>
+                { prices.large.price }
+              </div>
+
+            </Typography>
+          </div>
+          <div
+            className={classes.descriptionContainer}
           >
-            <span
-              className={classes.spanTitle}
-            >MED
-            </span>
-            <div>
-              { prices.medium.price }
-            </div>
-
-          </Typography>
-          <Typography
-            className={classes.price}
-            variant={'text'}
-          >
-            <span
-              className={classes.spanTitle}
-            >LARGE
-            </span>
-            <div>
-              { prices.large.price }
-            </div>
-
-          </Typography>
+            <Typography
+              variant={'text'}
+              className={classes.description}
+            >
+              {description}
+            </Typography>
+          </div>
         </div>
+
       </div>
-      <div
-        className={classes.descriptionContainer}
-      >
-        <Typography
-          variant={'text'}
-          className={classes.description}
-        >
-          {description}
-        </Typography>
-      </div>
+
     </div>
   )
 }

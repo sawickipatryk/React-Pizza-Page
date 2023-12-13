@@ -22,12 +22,6 @@ export const ItemLayout = (props) => {
       <NavBar>
         {contentNavBar}
       </NavBar>
-      <div
-        className={classes.wrapper}
-      >
-        {contentLeftSide}
-        {contentRightSide}
-      </div>
     </div>
   )
 }

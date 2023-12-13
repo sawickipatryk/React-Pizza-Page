@@ -13,10 +13,6 @@ import Logo from '../../components/Logo'
 import Container from '../../components/Container'
 import ToggleMenu from '../../components/ToggleMenu'
 import UserDropDown from '../../components/UserDropDown'
-import Typography from '../../components/Typography'
-import Button from '../../components/Button'
-
-import pizza from './pizza.jpg'
 
 export const PageItem = (props) => {
   const [toggleMenu, setToggleMenu] = React.useState(false)
@@ -135,84 +131,11 @@ export const PageItem = (props) => {
           </Container>
       }
         contentLeftSide={
-          <div
-            className={classes.container}
-          >
-            <div
-              className={classes.descriptionContainer}
-            >
-              <Typography
-                className={classes.pizzaName}
-                variant={'h2'}
-              >
-                PIZZA NAME
-              </Typography>
-              <div
-                className={classes.sizeContainer}
-              >
-                <Typography
-                  className={classes.header}
-                  variant={'h4'}
-                >
-                  Size
-                </Typography>
-                <div
-                  className={classes.buttonsContainer}
-                >
-                  <Button
-                    className={classes.buttonSize}
-                    variant={'contained'}
-                  >
-                    BIG 42 CM
-                  </Button>
-                  <Button
-                    className={classes.buttonSize}
-                    variant={'contained'}
-                  >
-                    MED 32 CM
-                  </Button>
-                  <Button
-                    className={classes.buttonSize}
-                    variant={'contained'}
-                  >
-                    SMALL 24 CM
-                  </Button>
-                </div>
-
-              </div>
-              <div>
-                <Typography
-                  className={classes.header}
-                  variant={'h4'}
-                >
-                  Default ingredients
-                </Typography>
-                <Typography
-                  className={classes.text}
-                  variant={'text'}
-                >
-                  pastry, tomato sauce, cheese, oregano
-                </Typography>
-              </div>
-            </div>
-            <div
-              className={classes.imgContainer}
-            >
-              <img
-                className={classes.img}
-                src={pizza}
-                alt={''}
-              />
-            </div>
-          </div>
-      }
+          <>
+          </>
+        }
         contentRightSide={
           <>
-            <div
-              className={classes.cardContainer}
-            >
-              <h1>CARD</h1>
-            </div>
           </>
       }
       />

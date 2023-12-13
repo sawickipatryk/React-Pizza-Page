@@ -5,12 +5,13 @@
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, .1), 0 4px 6px -2px rgba(0, 0, 0, .05);
     padding: 15px;
     border-radius: 10px;
+    background-color: rgba(255, 255, 255, 1);
 }
 
 .headerContainer {
     display: flex;
     align-items: flex-start;
-    justify-content: space-between
+    justify-content: space-between;
 }
 
 .header,
@@ -29,6 +30,7 @@
 
 .pizzaImg {
     width: 100px;
+    margin-top: 15px;
 }
 
 .spansTitle {
@@ -57,9 +59,26 @@
     margin-bottom: 10px;
 }
 
+.buttonsContainer {
+    display: flex;
+    gap: 10px;
+}
+
+.button {
+    margin-top: 15px;
+}
+
 @media screen and (min-width:768px) {
     .root {
         width: 48%;
+    }
+
+    .button {
+        padding: 10px 40px;
+    }
+
+    .buttonsContainer {
+        gap: 15px;
     }
 }
 

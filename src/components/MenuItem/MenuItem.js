@@ -104,6 +104,23 @@ export const MenuItem = (props) => {
               {description}
             </Typography>
           </div>
+          <div
+            className={classes.buttonsContainer}
+          >
+            <Button
+              variant={'contained'}
+              className={classes.button}
+            >
+              Add
+            </Button>
+            <Button
+              variant={'contained'}
+              onClick={onClickViewItem}
+              className={classes.button}
+            >
+              View
+            </Button>
+          </div>
         </div>
 
       </div>

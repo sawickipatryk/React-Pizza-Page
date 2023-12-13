@@ -5,7 +5,10 @@ import { createActionSetInfo } from '../../state/loaders'
 import { useSelector, useDispatch } from 'react-redux'
 import { logOut } from '../../auth'
 
+import pizza from './pizza.png'
+
 import classes from './styles.module.css'
+
 import ItemLayout from '../../layouts/ItemLayout'
 
 import NavLink from '../../components/NavLink'
@@ -13,6 +16,8 @@ import Logo from '../../components/Logo'
 import Container from '../../components/Container'
 import ToggleMenu from '../../components/ToggleMenu'
 import UserDropDown from '../../components/UserDropDown'
+import Typography from '../../components/Typography'
+import Button from '../../components/Button'
 
 export const PageItem = (props) => {
   const [toggleMenu, setToggleMenu] = React.useState(false)
@@ -131,12 +136,115 @@ export const PageItem = (props) => {
           </Container>
       }
         contentLeftSide={
-          <>
-          </>
+          <div
+            className={classes.container}
+          >
+            <div
+              className={classes.infoContainer}
+            >
+              <div
+                className={classes.nameContainer}
+              >
+                <Typography
+                  className={classes.name}
+                  variant={'h3'}
+                >
+                  Margherita
+                </Typography>
+              </div>
+              <div
+                className={classes.sizeContainer}
+              >
+                <Typography
+                  className={classes.h4}
+                  variant={'h4'}
+                >
+                  Size
+                </Typography>
+                <div
+                  className={classes.buttonsContainer}
+                >
+                  <Button
+                    className={classes.button}
+                    variant={'contained'}
+                  >
+                    <span
+                      className={classes.sizeSpan}
+                    >
+                      BIG 42cm
+                    </span>
+                    <span
+                      className={classes.priceSpan}
+                    >
+                      20$
+                    </span>
+                  </Button>
+                  <Button
+                    className={classes.button}
+                    variant={'contained'}
+                  >
+                    <span
+                      className={classes.sizeSpan}
+                    >
+                      MED 32cm
+                    </span>
+                    <span
+                      className={classes.priceSpan}
+                    >
+                      20$
+                    </span>
+                  </Button>
+                  <Button
+                    className={classes.button}
+                    variant={'contained'}
+                  >
+                    <span
+                      className={classes.sizeSpan}
+                    >
+                      SMALL 22cm
+                    </span>
+                    <span
+                      className={classes.priceSpan}
+                    >
+                      20$
+                    </span>
+                  </Button>
+                </div>
+              </div>
+              <div
+                className={classes.ingredientContainer}
+              >
+                <Typography
+                  variant={'h4'}
+                  className={classes.h4}
+                >
+                  Default Ingredient
+                </Typography>
+                <Typography
+                  variant={'text'}
+                  className={classes.ingredientText}
+                >
+                  pastry, tomato sauce, cheese, oregano
+                </Typography>
+              </div>
+            </div>
+            <div
+              className={classes.imgContainer}
+            >
+              <img
+                className={classes.img}
+                src={pizza}
+                alt={'pizza'}
+              />
+            </div>
+          </div>
         }
         contentRightSide={
-          <>
-          </>
+          <div
+            className={classes.containerCart}
+          >
+            <h1>CART</h1>
+          </div>
       }
       />
     </div>

@@ -1,8 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { createActionSetInfo } from '../../state/loaders'
+import { createActionSetInfo, createActionRemoveError } from '../../state/loaders'
 import { useSelector, useDispatch } from 'react-redux'
+import { useParams } from 'react-router-dom'
 import { logOut } from '../../auth'
 
 import pizza from './pizza.png'
@@ -19,23 +20,44 @@ import UserDropDown from '../../components/UserDropDown'
 import Typography from '../../components/Typography'
 import Button from '../../components/Button'
 import Cart from '../../components/Cart'
+import FullPageLayout from '../../components/FullPageLayout'
+import Loader from '../../components/Loader'
+import Message from '../../components/Message'
 
 export const PageItem = (props) => {
   const [toggleMenu, setToggleMenu] = React.useState(false)
   const [isuserDropDownOpen, setIsuserDropDownOpen] = React.useState(false)
   const {
     className,
+    menu,
     ...otherProps
   } = props
 
   const dispatch = useDispatch()
   const {
+    isLoading,
+    hasError,
+    errorMessage
+  } = useSelector((state) => state.loaders)
+
+  const {
     isUserLoggedIn
   } = useSelector((state) => state.auth)
 
+  const { itemId } = useParams()
+
+  const currentItem = menu && menu.find((item) => {
+    return item.id === itemId
+  })
+
+  console.log(currentItem)
   const openMenu = () => {
     setToggleMenu(!toggleMenu)
   }
+
+  const dismissMessage = React.useCallback(() => {
+    dispatch(createActionRemoveError())
+  }, [dispatch])
 
   const onClickLogOut = async () => {
     await logOut()
@@ -43,217 +65,250 @@ export const PageItem = (props) => {
   }
 
   return (
-    <div
-      className={`${classes.root}${className ? ` ${className}` : ''}`}
-      {...otherProps}
-    >
-      <ItemLayout
-        contentNavBar={
-          <Container
-            className={classes.navContainer}
-          >
-            <NavLink
-              className={classes.navLinkLogo}
-              to={'/'}
-            >
-              <Logo
-                className={classes.logo}
-              />
-            </NavLink>
 
-            <ul
-              className={`${toggleMenu ? ` ${classes.open}` : classes.navLinks}`}
-            >
-              <NavLink
-                className={classes.navLink}
-                to={'/'}
+    <>
+      {
+      (
+        hasError
+      )
+        ? (
+          <FullPageLayout
+            variant={'info'}
+          >
+            <Message
+              onButtonClick={dismissMessage}
+              iconVariant={'error'}
+              message={errorMessage}
+            />
+          </FullPageLayout>
+          )
+        : null }
+      {
+      (
+        isLoading
+      )
+        ? (
+          <FullPageLayout
+            variant={'loader'}
+          >
+            <Loader/>
+          </FullPageLayout>
+          )
+        : <div
+            className={`${classes.root}${className ? ` ${className}` : ''}`}
+            {...otherProps}
+          >
+          <ItemLayout
+            contentNavBar={
+              <Container
+                className={classes.navContainer}
               >
-                HOME
-              </NavLink>
-              <NavLink
-                className={classes.navLink}
-                to={'/menu'}
-              >
-                MENU
-              </NavLink>
-              <NavLink
-                className={classes.navLink}
-                to={'/aboutus'}
-              >
-                ABOUT US
-              </NavLink>
-              <NavLink
-                className={classes.navLink}
-                to={'/gallery'}
-              >
-                GALLERY
-              </NavLink>
-              <NavLink
-                className={classes.navLink}
-                to={'/contact'}
-              >
-                CONTACT
-              </NavLink>
-              {
-    (
-      isUserLoggedIn
-    )
-      ? (
-        <UserDropDown
-          onClickLogOutButton={onClickLogOut}
-          onClick = {() => { setIsuserDropDownOpen(!isuserDropDownOpen) }}
-          contentList={
-            isuserDropDownOpen
-              ? (
+                <NavLink
+                  className={classes.navLinkLogo}
+                  to={'/'}
+                >
+                  <Logo
+                    className={classes.logo}
+                  />
+                </NavLink>
+
                 <ul
-                  className={classes.navLinksDropDown}
+                  className={`${toggleMenu ? ` ${classes.open}` : classes.navLinks}`}
                 >
                   <NavLink
-                    className={classes.navLinkDropDown}
-                    onButtonClick={onClickLogOut}
+                    className={classes.navLink}
+                    to={'/'}
                   >
-                    Log Out
+                    HOME
                   </NavLink>
-                </ul>
-                )
-              : null}
-        />
-        )
-      : (
-        <NavLink
-          className={classes.navLink}
-          to={'/signin'}
-        >
-          SIGN IN
-        </NavLink>
-        )
-    }
-
-            </ul>
-            <ToggleMenu
-              openMenu={openMenu}
-              className={classes.toggle}
-            />
-          </Container>
-      }
-        contentLeftSide={
-          <div
-            className={classes.container}
+                  <NavLink
+                    className={classes.navLink}
+                    to={'/menu'}
+                  >
+                    MENU
+                  </NavLink>
+                  <NavLink
+                    className={classes.navLink}
+                    to={'/aboutus'}
+                  >
+                    ABOUT US
+                  </NavLink>
+                  <NavLink
+                    className={classes.navLink}
+                    to={'/gallery'}
+                  >
+                    GALLERY
+                  </NavLink>
+                  <NavLink
+                    className={classes.navLink}
+                    to={'/contact'}
+                  >
+                    CONTACT
+                  </NavLink>
+                  {
+      (
+        isUserLoggedIn
+      )
+        ? (
+          <UserDropDown
+            onClickLogOutButton={onClickLogOut}
+            onClick = {() => { setIsuserDropDownOpen(!isuserDropDownOpen) }}
+            contentList={
+              isuserDropDownOpen
+                ? (
+                  <ul
+                    className={classes.navLinksDropDown}
+                  >
+                    <NavLink
+                      className={classes.navLinkDropDown}
+                      onButtonClick={onClickLogOut}
+                    >
+                      Log Out
+                    </NavLink>
+                  </ul>
+                  )
+                : null}
+          />
+          )
+        : (
+          <NavLink
+            className={classes.navLink}
+            to={'/signin'}
           >
-            <div
-              className={classes.infoContainer}
-            >
+            SIGN IN
+          </NavLink>
+          )
+      }
+
+                </ul>
+                <ToggleMenu
+                  openMenu={openMenu}
+                  className={classes.toggle}
+                />
+              </Container>
+        }
+            contentLeftSide={
               <div
-                className={classes.nameContainer}
+                className={classes.container}
               >
-                <Typography
-                  className={classes.name}
-                  variant={'h3'}
-                >
-                  Margherita
-                </Typography>
-              </div>
-              <div
-                className={classes.sizeContainer}
-              >
-                <Typography
-                  className={classes.h4}
-                  variant={'h4'}
-                >
-                  Size
-                </Typography>
                 <div
-                  className={classes.buttonsContainer}
+                  className={classes.infoContainer}
                 >
-                  <Button
-                    className={classes.button}
-                    variant={'contained'}
+                  <div
+                    className={classes.nameContainer}
                   >
-                    <span
-                      className={classes.sizeSpan}
+                    <Typography
+                      className={classes.name}
+                      variant={'h3'}
                     >
-                      BIG 42cm
-                    </span>
-                    <span
-                      className={classes.priceSpan}
-                    >
-                      20$
-                    </span>
-                  </Button>
-                  <Button
-                    className={classes.button}
-                    variant={'contained'}
+                      {currentItem.name}
+                    </Typography>
+                  </div>
+                  <div
+                    className={classes.sizeContainer}
                   >
-                    <span
-                      className={classes.sizeSpan}
+                    <Typography
+                      className={classes.h4}
+                      variant={'h4'}
                     >
-                      MED 32cm
-                    </span>
-                    <span
-                      className={classes.priceSpan}
+                      Size
+                    </Typography>
+                    <div
+                      className={classes.buttonsContainer}
                     >
-                      20$
-                    </span>
-                  </Button>
-                  <Button
-                    className={classes.button}
-                    variant={'contained'}
+                      <Button
+                        className={classes.button}
+                        variant={'contained'}
+                      >
+                        <span
+                          className={classes.sizeSpan}
+                        >
+                          {currentItem.prices.medium.liter ? `${currentItem.prices.large.liter} L` : `${currentItem.prices.large.cm} CM`}
+                        </span>
+                        <span
+                          className={classes.priceSpan}
+                        >
+                          {currentItem.prices.large.price}
+                        </span>
+                      </Button>
+                      <Button
+                        className={classes.button}
+                        variant={'contained'}
+                      >
+                        <span
+                          className={classes.sizeSpan}
+                        >
+                          {currentItem.prices.medium.liter ? `${currentItem.prices.medium.liter} L` : `${currentItem.prices.medium.cm} CM`}
+                        </span>
+                        <span
+                          className={classes.priceSpan}
+                        >
+                          {currentItem.prices.medium.price}
+                        </span>
+                      </Button>
+                      <Button
+                        className={classes.button}
+                        variant={'contained'}
+                      >
+                        <span
+                          className={classes.sizeSpan}
+                        >
+                          {currentItem.prices.medium.liter ? `${currentItem.prices.small.liter} L` : `${currentItem.prices.small.cm} CM`}
+                        </span>
+                        <span
+                          className={classes.priceSpan}
+                        >
+                          {currentItem.prices.small.price}
+                        </span>
+                      </Button>
+                    </div>
+                  </div>
+                  <div
+                    className={classes.ingredientContainer}
                   >
-                    <span
-                      className={classes.sizeSpan}
+                    <Typography
+                      variant={'h4'}
+                      className={classes.h4}
                     >
-                      SMALL 22cm
-                    </span>
-                    <span
-                      className={classes.priceSpan}
+                      Default Ingredient
+                    </Typography>
+                    <Typography
+                      variant={'text'}
+                      className={classes.ingredientText}
                     >
-                      20$
-                    </span>
-                  </Button>
+                      {currentItem.text}
+                    </Typography>
+                  </div>
+                </div>
+                <div
+                  className={classes.imgContainer}
+                >
+                  <img
+                    className={classes.img}
+                    src={pizza}
+                    alt={'pizza'}
+                  />
                 </div>
               </div>
+          }
+            contentRightSide={
               <div
-                className={classes.ingredientContainer}
+                className={classes.containerCart}
               >
-                <Typography
-                  variant={'h4'}
-                  className={classes.h4}
-                >
-                  Default Ingredient
-                </Typography>
-                <Typography
-                  variant={'text'}
-                  className={classes.ingredientText}
-                >
-                  pastry, tomato sauce, cheese, oregano
-                </Typography>
+                <Cart/>
               </div>
-            </div>
-            <div
-              className={classes.imgContainer}
-            >
-              <img
-                className={classes.img}
-                src={pizza}
-                alt={'pizza'}
-              />
-            </div>
-          </div>
         }
-        contentRightSide={
-          <div
-            className={classes.containerCart}
-          >
-            <Cart/>
+          />
           </div>
       }
-      />
-    </div>
+    </>
+
   )
 }
 
 PageItem.propTypes = {
-  className: PropTypes.string
+  className: PropTypes.string,
+  menu: PropTypes.array
 }
 
 export default PageItem

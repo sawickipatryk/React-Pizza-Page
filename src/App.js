@@ -117,7 +117,9 @@ export const App = () => {
                 <Route
                   path={'/menu/:itemId'}
                   element={
-                    <PageItem/>
+                    <PageItem
+                      menu={data}
+                    />
                   }
                 />
                 <Route
@@ -181,7 +183,9 @@ export const App = () => {
               <Route
                 path={'/menu/:itemId'}
                 element={
-                  <PageItem/>
+                  <PageItem
+                    menu={data}
+                  />
                   }
               />
               <Route

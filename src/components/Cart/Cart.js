@@ -11,6 +11,7 @@ import Typography from '../Typography'
 import Button from '../Button'
 import FullPageLayout from '../FullPageLayout'
 import Loader from '../Loader'
+import CartItem from '../CartItem'
 import handleAsyncAction from '../../handleAsyncAction'
 
 import { createActionSetCart } from '../../state/cart'
@@ -21,8 +22,12 @@ export const Cart = (props) => {
   const {
     className,
     currentItem,
+    chosenSize,
+    chosenPrice,
     ...otherProps
   } = props
+
+  const newObject = { ...currentItem, size: chosenSize, price: chosenPrice }
 
   const dispatch = useDispatch()
   const {
@@ -55,7 +60,7 @@ export const Cart = (props) => {
           My Order
         </Typography>
       </div>
-      <div
+      <ul
         className={classes.cartContainer}
       >
         {
@@ -72,50 +77,48 @@ export const Cart = (props) => {
          : data && data
            .map((item) => {
              return (
-               <div
+               <CartItem
                  key={item.id}
-               >
-                 <Typography
-                   variant={'text'}
-                 >
-                   <br/>
-                   {item.name}
-                 </Typography>
-                 <Typography
-                   variant={'text'}
-                 >
-                   <br/>
-                   {item.quantity}
-                 </Typography>
-                 <Typography
-                   variant={'text'}
-                 >
-                   <br/>
-                   {item.text}
-                 </Typography>
-
-               </div>
+                 name={item.name}
+                 price={item.price}
+                 quantity={item.quantity}
+                 size={item.size}
+                 text={item.text}
+               />
              )
            })
       }
-      </div>
-      <Button
-        onClick={() => { onCliCkAdd(currentItem) }}
-        className={classes.button}
-        variant={'contained'}
-      >
-        Buy
-        <span>
-          $ 0.00
-        </span>
-      </Button>
+      </ul>
+      {
+        data.length > 0
+          ? (
+            <Button
+              onClick={() => { onCliCkAdd(newObject) }}
+              className={classes.button}
+              variant={'contained'}
+            >
+              Buy
+            </Button>
+            )
+          : (
+            <Button
+              onClick={() => { onCliCkAdd(newObject) }}
+              className={classes.button}
+              variant={'contained'}
+            >
+              ADD
+            </Button>
+            )
+      }
     </div>
   )
 }
 
 Cart.propTypes = {
   className: PropTypes.string,
-  currentItem: PropTypes.object
+  currentItem: PropTypes.object,
+  chosenSize: PropTypes.string,
+  chosenPrice: PropTypes.number
 
 }
 

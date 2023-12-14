@@ -28,6 +28,7 @@ export const PageItem = (props) => {
   const [toggleMenu, setToggleMenu] = React.useState(false)
   const [isuserDropDownOpen, setIsuserDropDownOpen] = React.useState(false)
   const [chosenSize, setChosenSize] = React.useState('')
+  const [chosenPrice, setChosenPrice] = React.useState(null)
 
   const {
     className,
@@ -68,19 +69,16 @@ export const PageItem = (props) => {
 
   const onClickSmallSizeButton = () => {
     setChosenSize('small')
+    setChosenPrice(currentItem.prices.large.price)
   }
   const onClickMediumSizeButton = () => {
     setChosenSize('medium')
+    setChosenPrice(currentItem.prices.medium.price)
   }
   const onClickLargeSizeButton = () => {
     setChosenSize('large')
+    setChosenPrice(currentItem.prices.small.price)
   }
-
-  // React.useEffect(() => {
-  //   handleAsyncAction(async () => {
-
-  //   })
-  // }, [dispatch])
 
   return (
 
@@ -246,7 +244,7 @@ export const PageItem = (props) => {
                          <span
                            className={classes.priceSpan}
                          >
-                           {currentItem.prices.large.price}
+                           $ {currentItem.prices.large.price}
                          </span>
                        </Button>
                        <Button
@@ -262,7 +260,7 @@ export const PageItem = (props) => {
                          <span
                            className={classes.priceSpan}
                          >
-                           {currentItem.prices.medium.price}
+                           $  {currentItem.prices.medium.price}
                          </span>
                        </Button>
                        <Button
@@ -278,7 +276,7 @@ export const PageItem = (props) => {
                          <span
                            className={classes.priceSpan}
                          >
-                           {currentItem.prices.small.price}
+                           $ {currentItem.prices.small.price}
                          </span>
                        </Button>
                      </div>
@@ -317,11 +315,13 @@ export const PageItem = (props) => {
                >
                  <Cart
                    currentItem={currentItem}
+                   chosenSize={chosenSize}
+                   chosenPrice={chosenPrice}
                  />
                </div>
         }
            />
-           </div>
+         </div>
       }
     </>
 

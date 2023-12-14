@@ -4,9 +4,8 @@
 
 .container {
     display: flex;
-    gap: 10px;
     align-items: flex-start;
-    justify-content: space-between;
+    text-align: center;
 }
 
 .img {
@@ -22,7 +21,24 @@
     align-items: center;
 }
 
+.descriptionContainer {
+    width: calc(100% - 300px);
+}
+
+.quantityContainer {
+    width: 100px;
+}
+
+.priceContainer {
+    width: 100px;
+}
+
+.sizeContainer {
+    width: 100px;
+}
+
 .h4 {
+    display: block;
     font-size: 16px;
     color: black;
 }

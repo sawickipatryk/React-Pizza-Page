@@ -1,4 +1,4 @@
-import objectToArray from './objectToArray'
+import objectToArray from '../const/objectToArray'
 
 export const getAll = async () => {
   const response = await fetch(`${process.env.REACT_APP_FIREBASE_URL}/menu/.json`)

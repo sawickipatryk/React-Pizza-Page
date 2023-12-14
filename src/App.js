@@ -6,6 +6,10 @@ import { useSelector, useDispatch } from 'react-redux'
 
 import { createActionRemoveInfo } from './state/loaders'
 
+import { getAll as getCart } from './api/cart/getAll'
+
+import { createActionSetCart } from './state/cart'
+
 import {
   createActionSetMenu
 }
@@ -59,6 +63,9 @@ export const App = () => {
       }
       const menu = await getAll()
       dispatch(createActionSetMenu(menu))
+
+      const data = await getCart()
+      dispatch(createActionSetCart(data))
     })
   }, [dispatch])
 

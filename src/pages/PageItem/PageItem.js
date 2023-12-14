@@ -76,6 +76,12 @@ export const PageItem = (props) => {
     setChosenSize('large')
   }
 
+  // React.useEffect(() => {
+  //   handleAsyncAction(async () => {
+
+  //   })
+  // }, [dispatch])
+
   return (
 
     <>
@@ -309,7 +315,9 @@ export const PageItem = (props) => {
                <div
                  className={classes.containerCart}
                >
-                 <Cart />
+                 <Cart
+                   currentItem={currentItem}
+                 />
                </div>
         }
            />

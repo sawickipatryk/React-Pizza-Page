@@ -3,24 +3,28 @@ import PropTypes from 'prop-types'
 
 import classes from './styles.module.css'
 
-import { getAll as getCart } from '../../api/cart/getAll'
-
-import { createActionSetCart } from '../../state/cart'
-
 import { useSelector, useDispatch } from 'react-redux'
 
-import handleAsyncAction from '../../handleAsyncAction'
+import { sendItem } from '../../api/cart/sendItem'
+
 import Typography from '../Typography'
 import Button from '../Button'
 import FullPageLayout from '../FullPageLayout'
 import Loader from '../Loader'
+import handleAsyncAction from '../../handleAsyncAction'
+
+import { createActionSetCart } from '../../state/cart'
+
+import { getAll as getCart } from '../../api/cart/getAll'
 
 export const Cart = (props) => {
   const {
     className,
+    currentItem,
     ...otherProps
   } = props
 
+  const dispatch = useDispatch()
   const {
     isLoading
   } = useSelector((state) => state.loaders)
@@ -28,12 +32,10 @@ export const Cart = (props) => {
     data
   } = useSelector((state) => state.cart)
 
-  const dispatch = useDispatch()
-
-  const onClickAddButton = () => {
+  const onCliCkAdd = (item) => {
     handleAsyncAction(async () => {
+      await sendItem(item)
       const data = await getCart()
-      console.log(data)
       dispatch(createActionSetCart(data))
     })
   }
@@ -69,19 +71,36 @@ export const Cart = (props) => {
            )
          : data && data
            .map((item) => {
-             console.log(item)
              return (
                <div
                  key={item.id}
                >
-                 {item.name}
+                 <Typography
+                   variant={'text'}
+                 >
+                   <br/>
+                   {item.name}
+                 </Typography>
+                 <Typography
+                   variant={'text'}
+                 >
+                   <br/>
+                   {item.quantity}
+                 </Typography>
+                 <Typography
+                   variant={'text'}
+                 >
+                   <br/>
+                   {item.text}
+                 </Typography>
+
                </div>
              )
            })
       }
       </div>
       <Button
-        onClick={onClickAddButton}
+        onClick={() => { onCliCkAdd(currentItem) }}
         className={classes.button}
         variant={'contained'}
       >
@@ -95,7 +114,9 @@ export const Cart = (props) => {
 }
 
 Cart.propTypes = {
-  className: PropTypes.string
+  className: PropTypes.string,
+  currentItem: PropTypes.object
+
 }
 
 export default Cart

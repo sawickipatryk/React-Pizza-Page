@@ -30,6 +30,8 @@ export const PageItem = (props) => {
   const [chosenSize, setChosenSize] = React.useState('')
   const [chosenPrice, setChosenPrice] = React.useState(null)
 
+  console.log(chosenSize)
+
   const {
     className,
     menu,
@@ -68,15 +70,15 @@ export const PageItem = (props) => {
   }
 
   const onClickSmallSizeButton = () => {
-    setChosenSize('small')
+    setChosenSize((currentItem.prices.small.liter === '0.5' ? '0.5' : 'small'))
     setChosenPrice(currentItem.prices.large.price)
   }
   const onClickMediumSizeButton = () => {
-    setChosenSize('medium')
+    setChosenSize((currentItem.prices.medium.liter === '1' ? '1' : 'medium'))
     setChosenPrice(currentItem.prices.medium.price)
   }
   const onClickLargeSizeButton = () => {
-    setChosenSize('large')
+    setChosenSize((currentItem.prices.large.liter === '1.5' ? '1.5' : 'large'))
     setChosenPrice(currentItem.prices.small.price)
   }
 
@@ -233,7 +235,8 @@ export const PageItem = (props) => {
                      >
                        <Button
                          onClick={onClickLargeSizeButton}
-                         className={`${classes.button}${chosenSize === 'large' ? ` ${classes.active}` : ''}`}
+
+                         className={`${classes.button}${chosenSize === 'large' ? ` ${classes.active}` : ''}${chosenSize === '1.5' ? ` ${classes.active}` : ''}`}
                          variant={'contained'}
                        >
                          <span
@@ -249,7 +252,8 @@ export const PageItem = (props) => {
                        </Button>
                        <Button
                          onClick={onClickMediumSizeButton}
-                         className={`${classes.button}${chosenSize === 'medium' ? ` ${classes.active}` : ''}`}
+
+                         className={`${classes.button}${chosenSize === 'medium' ? ` ${classes.active}` : ''}${chosenSize === '1' ? ` ${classes.active}` : ''}`}
                          variant={'contained'}
                        >
                          <span
@@ -265,7 +269,8 @@ export const PageItem = (props) => {
                        </Button>
                        <Button
                          onClick={onClickSmallSizeButton}
-                         className={`${classes.button}${chosenSize === 'small' ? ` ${classes.active}` : ''}`}
+
+                         className={`${classes.button}${chosenSize === 'small' ? ` ${classes.active}` : ''}${chosenSize === '0.5' ? ` ${classes.active}` : ''}`}
                          variant={'contained'}
                        >
                          <span
@@ -321,7 +326,7 @@ export const PageItem = (props) => {
                </div>
         }
            />
-         </div>
+           </div>
       }
     </>
 

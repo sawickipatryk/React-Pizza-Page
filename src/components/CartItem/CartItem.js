@@ -1,22 +1,53 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import { useSelector, useDispatch } from 'react-redux'
+
+import { patchItem } from '../../api/cart'
+import { createActionSetCart } from '../../state/cart'
+import { getAllCart as getCart } from '../../api/cart/getAllCart'
+
 import classes from './styles.module.css'
 
 import pizza from './pizza.png'
 import Typography from '../Typography'
 import Button from '../Button'
+import handleAsyncAction from '../../handleAsyncAction'
 
 export const CartItem = (props) => {
   const {
+    id,
     className,
     name,
+    totalPrice,
     price,
     quantity,
     size,
     text,
+    newObject,
     ...otherProps
   } = props
+
+  const dispatch = useDispatch()
+  const {
+    data
+  } = useSelector((state) => state.cart)
+
+  const onClickPlusButton = () => {
+    const newQuantity = quantity + 1
+    const newPrice = newQuantity * price
+
+    const newItem = {
+      totalPrice: newPrice,
+      quantity: newQuantity
+    }
+
+    handleAsyncAction(async () => {
+      await patchItem(newItem, id)
+      const data = await getCart()
+      dispatch(createActionSetCart(data))
+    })
+  }
 
   return (
     <li
@@ -96,13 +127,14 @@ export const CartItem = (props) => {
             className={classes.text}
             variant={'text'}
           >
-            $ {price}
+            $ {totalPrice}
           </Typography>
         </div>
         <div
           className={classes.buttonContainer}
         >
           <Button
+            onClick={() => { onClickPlusButton(data, newObject) }}
             className={classes.buttonINC}
             variant={'contained'}
           >
@@ -124,10 +156,13 @@ export const CartItem = (props) => {
 CartItem.propTypes = {
   className: PropTypes.string,
   name: PropTypes.string,
+  totalPrice: PropTypes.number,
   price: PropTypes.number,
   quantity: PropTypes.number,
   size: PropTypes.string,
-  text: PropTypes.string
+  text: PropTypes.string,
+  id: PropTypes.string,
+  newObject: PropTypes.object
 }
 
 export default CartItem

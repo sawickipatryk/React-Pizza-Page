@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from 'react-redux'
 
 import { createActionRemoveInfo } from './state/loaders'
 
-import { getAll as getCart } from './api/cart/getAll'
+import { getAllCart as getCart } from './api/cart/getAllCart'
 
 import { createActionSetCart } from './state/cart'
 

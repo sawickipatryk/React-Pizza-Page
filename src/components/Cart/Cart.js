@@ -16,7 +16,7 @@ import handleAsyncAction from '../../handleAsyncAction'
 
 import { createActionSetCart } from '../../state/cart'
 
-import { getAll as getCart } from '../../api/cart/getAll'
+import { getAllCart as getCart } from '../../api/cart/getAllCart'
 
 export const Cart = (props) => {
   const {
@@ -27,7 +27,7 @@ export const Cart = (props) => {
     ...otherProps
   } = props
 
-  const newObject = { ...currentItem, size: chosenSize, price: chosenPrice }
+  const newObject = { ...currentItem, size: chosenSize, price: chosenPrice, totalPrice: chosenPrice }
 
   const dispatch = useDispatch()
   const {
@@ -79,11 +79,14 @@ export const Cart = (props) => {
              return (
                <CartItem
                  key={item.id}
+                 id={item.id}
                  name={item.name}
+                 totalPrice={item.totalPrice}
                  price={item.price}
                  quantity={item.quantity}
                  size={item.size}
                  text={item.text}
+                 newObject={newObject}
                />
              )
            })

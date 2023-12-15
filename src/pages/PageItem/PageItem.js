@@ -30,8 +30,6 @@ export const PageItem = (props) => {
   const [chosenSize, setChosenSize] = React.useState('')
   const [chosenPrice, setChosenPrice] = React.useState(null)
 
-  console.log(chosenSize)
-
   const {
     className,
     menu,

@@ -10,6 +10,7 @@ export const sendItem = async (item) => {
         id: item.id,
         name: item.name,
         price: item.price,
+        totalPrice: item.totalPrice,
         size: item.size,
         text: item.text,
         quantity: item.quantity

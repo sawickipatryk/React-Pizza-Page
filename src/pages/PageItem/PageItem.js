@@ -320,6 +320,7 @@ export const PageItem = (props) => {
                    currentItem={currentItem}
                    chosenSize={chosenSize}
                    chosenPrice={chosenPrice}
+                   setChosenSize={setChosenSize}
                  />
                </div>
         }

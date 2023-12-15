@@ -9,15 +9,16 @@
 }
 
 .wrapper {
-    padding: 20px 12px;
+    padding: 20px 6px;
 }
 
 
 @media screen and (min-width:768px) {
     .wrapper {
         display: flex;
-        gap: 30px;
+        gap: 15px;
         width: 100%;
         justify-content: center;
+        padding: 20px 12px;
     }
 }

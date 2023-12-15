@@ -1,41 +1,46 @@
 .root {
     width: 100%;
+    text-align: center;
 }
 
 .container {
     display: flex;
-    align-items: flex-start;
-    text-align: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.upperContainer {
+    display: flex;
+
 }
 
 .img {
-    width: 50px;
+    width: 40px;
 }
 
-.descriptionContainer,
-.quantityContainer,
-.priceContainer,
-.sizeContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.imgContainer {
+    display: none;
 }
 
 .descriptionContainer {
-    width: calc(100% - 300px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: calc(100% - 195px);
 }
 
 .quantityContainer {
-    width: 100px;
+    width: 85px;
 }
 
 .priceContainer {
-    width: 100px;
+    width: 55px;
 }
 
 .sizeContainer {
-    width: 100px;
+    width: 55px;
 }
+
 
 .h4 {
     display: block;
@@ -44,10 +49,34 @@
 }
 
 .text {
+    display: block;
     font-size: 15px;
+    max-width: 120px;
 }
 
 .buttonContainer {
     display: flex;
     gap: 15px;
+}
+
+@media screen and (min-width:1024px) {
+    .imgContainer {
+        display: block;
+    }
+
+    .descriptionContainer {
+        width: calc(100% - 300px);
+    }
+
+    .quantityContainer {
+        width: 100px;
+    }
+
+    .priceContainer {
+        width: 100px;
+    }
+
+    .sizeContainer {
+        width: 100px;
+    }
 }

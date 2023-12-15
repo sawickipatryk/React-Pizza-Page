@@ -1,28 +1,19 @@
 .root {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    height: auto;
     box-shadow: 0 15px 50px 0 rgba(0, 0, 0, .1);
-    padding-top: 20px;
-    min-width: 550px;
+    padding: 10px;
 }
 
 .headerContainer {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    width: 100%;
     text-align: center;
 }
 
 .cartContainer {
-    padding: 20px 10px;
-    width: 100%;
-    min-height: 500px;
     display: flex;
     flex-direction: column;
     list-style: none;
-    gap: 15px;
+    gap: 16px;
+    padding: 20px 0px;
 }
 
 .h4 {
@@ -32,5 +23,15 @@
 
 .button {
     width: 100%;
-    padding: 20px 20px;
+}
+
+@media screen and (min-width:1024px) {
+    .cartContainer {
+        min-width: 500px;
+    }
+
+    .button {
+        width: 100%;
+        padding: 20px 20px;
+    }
 }

@@ -5,6 +5,8 @@ import classes from './styles.module.css'
 
 import { useSelector, useDispatch } from 'react-redux'
 
+import { useNavigate } from 'react-router-dom'
+
 import { sendItem } from '../../api/cart/sendItem'
 
 import Typography from '../Typography'
@@ -24,10 +26,14 @@ export const Cart = (props) => {
     currentItem,
     chosenSize,
     chosenPrice,
+    setChosenSize,
     ...otherProps
   } = props
 
   const newObject = { ...currentItem, size: chosenSize, price: chosenPrice, totalPrice: chosenPrice }
+
+  const navigate = useNavigate()
+  const onClickBuyButton = React.useCallback(() => navigate('/orderform'), [navigate])
 
   const dispatch = useDispatch()
   const {
@@ -44,6 +50,7 @@ export const Cart = (props) => {
       const data = await getCart()
       dispatch(createActionSetCart(data))
     })
+    setChosenSize('')
   }
 
   return (
@@ -94,10 +101,10 @@ export const Cart = (props) => {
       }
       </ul>
       {
-        data.length > 0
+        data.length > 0 && !chosenSize
           ? (
             <Button
-              onClick={() => { onCliCkAdd(newObject) }}
+              onClick={onClickBuyButton}
               className={classes.button}
               variant={'contained'}
             >
@@ -122,6 +129,7 @@ Cart.propTypes = {
   className: PropTypes.string,
   currentItem: PropTypes.object,
   chosenSize: PropTypes.string,
+  setChosenSize: PropTypes.func,
   chosenPrice: PropTypes.number
 
 }

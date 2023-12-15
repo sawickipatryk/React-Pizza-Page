@@ -30,6 +30,7 @@ import SignInPage from './pages/SignInPage'
 import SignUpPage from './pages/SignUpPage'
 import PageItem from './pages/PageItem'
 import RecoveryPasswordPage from './pages/RecoveryPasswordPage'
+import OrderFormPage from './pages/OrderFormPage'
 import { checkIfUserIsLoggedIn, getUserData } from './auth'
 
 export const App = () => {
@@ -165,6 +166,12 @@ export const App = () => {
                     <RecoveryPasswordPage />
           }
                 />
+                <Route
+                  path={'/orderform'}
+                  element={
+                    <OrderFormPage />
+          }
+                />
               </Routes>
               )
             : null
@@ -212,6 +219,12 @@ export const App = () => {
                 element={
                   <ContactPage />
         }
+              />
+              <Route
+                path={'/orderform'}
+                element={
+                  <OrderFormPage />
+          }
               />
             </Routes>
             )

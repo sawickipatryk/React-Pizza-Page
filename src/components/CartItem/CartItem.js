@@ -63,95 +63,104 @@ export const CartItem = (props) => {
         className={classes.container}
       >
         <div
-          className={classes.imgContainer}
+          className={classes.upperContainer}
         >
-          <img
-            className={classes.img}
-            src={pizza}
-            alt={'pizza'}
-          />
+          <div
+            className={classes.imgContainer}
+          >
+            <img
+              className={classes.img}
+              src={pizza}
+              alt={'pizza'}
+            />
+          </div>
+
+          <div
+            className={classes.descriptionContainer}
+          >
+            <Typography
+              className={classes.h4}
+              variant={'h4'}
+            >
+              {name}
+            </Typography>
+            <Typography
+              className={classes.text}
+              variant={'text'}
+            >
+              {text}
+            </Typography>
+          </div>
+          <div
+            className={classes.quantityContainer}
+          >
+            <Typography
+              className={classes.h4}
+              variant={'h4'}
+            >
+              Quantity
+            </Typography>
+            <Typography
+              className={classes.text}
+              variant={'text'}
+            >
+              {quantity}
+            </Typography>
+          </div>
+          <div
+            className={classes.sizeContainer}
+          >
+            <Typography
+              className={classes.h4}
+              variant={'h4'}
+            >
+              Size
+            </Typography>
+            <Typography
+              className={classes.text}
+              variant={'text'}
+            >
+              {size}
+            </Typography>
+          </div>
+          <div
+            className={classes.priceContainer}
+          >
+            <Typography
+              className={classes.h4}
+              variant={'h4'}
+            >
+              Price
+            </Typography>
+            <Typography
+              className={classes.text}
+              variant={'text'}
+            >
+              $ {totalPrice}
+            </Typography>
+          </div>
         </div>
         <div
-          className={classes.descriptionContainer}
+          className={classes.bottomContainer}
         >
-          <Typography
-            className={classes.h4}
-            variant={'h4'}
+          <div
+            className={classes.buttonContainer}
           >
-            {name}
-          </Typography>
-          <Typography
-            className={classes.text}
-            variant={'text'}
-          >
-            {text}
-          </Typography>
-        </div>
-        <div
-          className={classes.quantityContainer}
-        >
-          <Typography
-            className={classes.h4}
-            variant={'h4'}
-          >
-            Quantity
-          </Typography>
-          <Typography
-            className={classes.text}
-            variant={'text'}
-          >
-            {quantity}
-          </Typography>
-        </div>
-        <div
-          className={classes.sizeContainer}
-        >
-          <Typography
-            className={classes.h4}
-            variant={'h4'}
-          >
-            Size
-          </Typography>
-          <Typography
-            className={classes.text}
-            variant={'text'}
-          >
-            {size}
-          </Typography>
-        </div>
-        <div
-          className={classes.priceContainer}
-        >
-          <Typography
-            className={classes.h4}
-            variant={'h4'}
-          >
-            Price
-          </Typography>
-          <Typography
-            className={classes.text}
-            variant={'text'}
-          >
-            $ {totalPrice}
-          </Typography>
-        </div>
-        <div
-          className={classes.buttonContainer}
-        >
-          <Button
-            onClick={() => { onClickPlusButton(quantity, price) }}
-            className={classes.buttonINC}
-            variant={'contained'}
-          >
-            +
-          </Button>
-          <Button
-            onClick={() => { onClickMinusButton(id) }}
-            className={classes.buttonDEC}
-            variant={'contained'}
-          >
-            -
-          </Button>
+            <Button
+              onClick={() => { onClickPlusButton(quantity, price) }}
+              className={classes.buttonINC}
+              variant={'contained'}
+            >
+              +
+            </Button>
+            <Button
+              onClick={() => { onClickMinusButton(id) }}
+              className={classes.buttonDEC}
+              variant={'contained'}
+            >
+              -
+            </Button>
+          </div>
         </div>
       </div>
     </li>

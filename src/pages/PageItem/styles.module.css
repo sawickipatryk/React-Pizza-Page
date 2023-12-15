@@ -60,7 +60,7 @@
     padding: 10px;
     display: flex;
     flex-direction: column;
-    max-width: 400px;
+    max-width: 350px;
 }
 
 .infoContainer {
@@ -137,11 +137,10 @@
     display: block;
 }
 
+
 .containerCart {
-    display: none;
+    max-width: 350px;
 }
-
-
 
 @media screen and (min-width:768px) {
     .background {
@@ -160,14 +159,6 @@
     .socialsContainer {
         margin: 0px !important;
     }
-
-    .containerCart {
-        display: block;
-        width: 400px;
-        height: 600px;
-    }
-
-
 
     .imgContainer {
         display: flex;
@@ -196,6 +187,16 @@
     .priceSpan {
         font-size: 25px;
     }
+
+    .containerCart {
+        min-width: 350px;
+        max-width: none;
+    }
+
+    .container {
+        min-width: 380px;
+    }
+
 }
 
 @media screen and (min-width:1200px) {
@@ -234,7 +235,7 @@
     }
 
     .container {
-        max-width: 500px;
         gap: 50px;
     }
+
 }

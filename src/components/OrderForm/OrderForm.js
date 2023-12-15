@@ -112,58 +112,74 @@ export const OrderForm = (props) => {
           <div
             className={classes.contactDetailUpContainer}
           >
-            <TextField
-              className={classes.textField}
-              placeholder={'Name'}
-              errorMessage={errors.name && errors.name.message}
-              {...registeredNameProps}
-            />
-            <TextField
-              className={classes.textField}
-              placeholder={'Surname'}
-              errorMessage={errors.surname && errors.surname.message}
-              {...registeredSurnnameProps}
-            />
-            <TextField
-              className={classes.textField}
-              placeholder={'Phone Number'}
-              errorMessage={errors.number && errors.number.message}
-              {...registeredPhoneNumberProps}
-            />
-            <TextField
-              className={classes.textField}
-              placeholder={'E-mail'}
-              errorMessage={errors.email && errors.email.message}
-              {...registeredEmailProps}
-            />
+            <div
+              className={classes.inputsContainer}
+            >
+              <TextField
+                className={classes.textField}
+                placeholder={'Name'}
+                errorMessage={errors.name && errors.name.message}
+                {...registeredNameProps}
+              />
+              <TextField
+                className={classes.textField}
+                placeholder={'Surname'}
+                errorMessage={errors.surname && errors.surname.message}
+                {...registeredSurnnameProps}
+              />
+            </div>
+            <div
+              className={classes.inputsContainer}
+            >
+              <TextField
+                className={classes.textField}
+                placeholder={'Phone Number'}
+                errorMessage={errors.number && errors.number.message}
+                {...registeredPhoneNumberProps}
+              />
+              <TextField
+                className={classes.textField}
+                placeholder={'E-mail'}
+                errorMessage={errors.email && errors.email.message}
+                {...registeredEmailProps}
+              />
+            </div>
           </div>
           <div
             className={classes.contactDetailDownContainer}
           >
-            <TextField
-              className={classes.textField}
-              placeholder={'City'}
-              errorMessage={errors.city && errors.city.message}
-              {...registeredCityProps}
-            />
-            <TextField
-              className={classes.textField}
-              placeholder={'Street'}
-              errorMessage={errors.street && errors.street.message}
-              {...registeredStreetProps}
-            />
-            <TextField
-              className={classes.textField}
-              placeholder={'House Number'}
-              errorMessage={errors.houseNumber && errors.houseNumber.message}
-              {...registeredHouseNumberProps}
-            />
-            <TextField
-              className={classes.textField}
-              placeholder={'Flat Number'}
-              errorMessage={errors.flatNumber && errors.flatNumber.message}
-              {...registeredFlatNumberProps}
-            />
+            <div
+              className={classes.inputsContainer}
+            >
+              <TextField
+                className={classes.textField}
+                placeholder={'City'}
+                errorMessage={errors.city && errors.city.message}
+                {...registeredCityProps}
+              />
+              <TextField
+                className={classes.textField}
+                placeholder={'Street'}
+                errorMessage={errors.street && errors.street.message}
+                {...registeredStreetProps}
+              />
+            </div>
+            <div
+              className={classes.inputsContainer}
+            >
+              <TextField
+                className={classes.textField}
+                placeholder={'House Number'}
+                errorMessage={errors.houseNumber && errors.houseNumber.message}
+                {...registeredHouseNumberProps}
+              />
+              <TextField
+                className={classes.textField}
+                placeholder={'Flat Number'}
+                errorMessage={errors.flatNumber && errors.flatNumber.message}
+                {...registeredFlatNumberProps}
+              />
+            </div>
           </div>
           <div
             className={classes.extraMesasgeContainer}

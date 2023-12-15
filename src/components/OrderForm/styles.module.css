@@ -1,3 +1,17 @@
 .root {
-    padding-top: 62px;
+    width: 100%;
+}
+
+@media screen and (min-width:1024px) {
+
+    .contactDetailUpContainer,
+    .contactDetailDownContainer {
+        display: flex;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .inputsContainer {
+        width: 49%;
+    }
 }

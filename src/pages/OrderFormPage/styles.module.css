@@ -51,31 +51,6 @@
     width: 135px;
 }
 
-.socialsContainer,
-.contactContainer,
-.openingHoursContainer {
-    flex-direction: column;
-    margin-bottom: 15px;
-}
-
-.h4 {
-    color: #fff !important;
-    margin-bottom: 10px;
-}
-
-.text {
-    color: #fff !important;
-    margin-bottom: 10px;
-}
-
-.footerContainer {
-    flex-direction: column;
-}
-
-.linkSocials {
-    color: #fff !important;
-    margin-right: 20px;
-}
 
 @media screen and (min-width:768px) {
 
@@ -83,14 +58,6 @@
         width: 155px;
     }
 
-    .footerContainer {
-        flex-direction: row;
-        align-items: flex-start !important;
-    }
-
-    .socialsContainer {
-        margin: 0px !important;
-    }
 }
 
 @media screen and (min-width:1200px) {
@@ -124,8 +91,5 @@
         font-weight: 600;
     }
 
-    .header {
-        font-size: 48px;
-    }
 
 }

@@ -101,25 +101,35 @@ export const Cart = (props) => {
       }
       </ul>
       {
-        data.length > 0 && !chosenSize
-          ? (
-            <Button
-              onClick={onClickBuyButton}
-              className={classes.button}
-              variant={'contained'}
-            >
-              Buy
-            </Button>
-            )
-          : (
-            <Button
-              onClick={() => { onCliCkAdd(newObject) }}
-              className={classes.button}
-              variant={'contained'}
-            >
-              ADD
-            </Button>
-            )
+       (
+         isLoading
+       )
+         ? (
+           <FullPageLayout
+             variant={'loader'}
+           >
+             <Loader/>
+           </FullPageLayout>
+           )
+         : data.length > 0 && !chosenSize
+           ? (
+             <Button
+               onClick={onClickBuyButton}
+               className={classes.button}
+               variant={'contained'}
+             >
+               Buy
+             </Button>
+             )
+           : (
+             <Button
+               onClick={() => { onCliCkAdd(newObject) }}
+               className={classes.button}
+               variant={'contained'}
+             >
+               ADD
+             </Button>
+             )
       }
     </div>
   )

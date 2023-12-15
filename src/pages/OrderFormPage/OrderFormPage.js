@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 
 import classes from './styles.module.css'
 
+import { useForm, FormProvider } from 'react-hook-form'
+
 import ItemLayout from '../../layouts/ItemLayout'
 import OrderForm from '../../components/OrderForm'
 import NavLink from '../../components/NavLink'
@@ -13,10 +15,23 @@ import Cart from '../../components/Cart'
 
 export const OrderFormPage = (props) => {
   const [toggleMenu, setToggleMenu] = React.useState(false)
+  const [popUp, setPopUp] = React.useState(false)
   const {
     className,
     ...otherProps
   } = props
+
+  const methods = useForm()
+  const { handleSubmit, reset } = methods
+
+  const onSubmit = handleSubmit(
+    (data, e) => {
+      setPopUp(true)
+      reset()
+    },
+    (errors, e) => {
+    }
+  )
 
   const openMenu = () => {
     setToggleMenu(!toggleMenu)
@@ -83,7 +98,15 @@ export const OrderFormPage = (props) => {
       }
         contentLeftSide={
           < >
-            <OrderForm/>
+            <FormProvider
+              {...methods}
+            >
+              <OrderForm
+                popUp={popUp}
+                setPopUp={setPopUp}
+                onSubmit={onSubmit}
+              />
+            </FormProvider>
           </>
           }
         contentRightSide={

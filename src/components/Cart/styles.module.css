@@ -25,10 +25,18 @@
     width: 100%;
 }
 
-@media screen and (min-width:1024px) {
+@media screen and (min-width:768px) {
     .cartContainer {
-        min-width: 500px;
+        min-width: 450px;
     }
+
+    .button {
+        width: 100%;
+        padding: 20px 20px;
+    }
+}
+
+@media screen and (min-width:1024px) {
 
     .button {
         width: 100%;

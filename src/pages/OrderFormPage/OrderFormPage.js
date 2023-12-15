@@ -110,9 +110,9 @@ export const OrderFormPage = (props) => {
           </>
           }
         contentRightSide={
-          < >
+          <div>
             <Cart/>
-          </>
+          </div>
           }
       />
     </div>

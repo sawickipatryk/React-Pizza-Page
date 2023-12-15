@@ -38,6 +38,7 @@ export const Cart = (props) => {
   } = useSelector((state) => state.cart)
 
   const onCliCkAdd = (item) => {
+    localStorage.setItem('pizzaID', item.id)
     handleAsyncAction(async () => {
       await sendItem(item)
       const data = await getCart()

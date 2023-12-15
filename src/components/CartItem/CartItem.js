@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 import { patchItem } from '../../api/cart'
 import { createActionSetCart } from '../../state/cart'
@@ -29,9 +29,8 @@ export const CartItem = (props) => {
   } = props
 
   const dispatch = useDispatch()
-  const {
-    data
-  } = useSelector((state) => state.cart)
+
+  console.log(id)
 
   const onClickPlusButton = () => {
     const newQuantity = quantity + 1
@@ -134,7 +133,7 @@ export const CartItem = (props) => {
           className={classes.buttonContainer}
         >
           <Button
-            onClick={() => { onClickPlusButton(data, newObject) }}
+            onClick={() => { onClickPlusButton() }}
             className={classes.buttonINC}
             variant={'contained'}
           >

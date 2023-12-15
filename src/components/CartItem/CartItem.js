@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux'
 import { patchItem } from '../../api/cart'
 import { createActionSetCart } from '../../state/cart'
 import { getAllCart as getCart } from '../../api/cart/getAllCart'
+import { deleteItem } from '../../api/cart/deleteItem'
 
 import classes from './styles.module.css'
 
@@ -30,9 +31,7 @@ export const CartItem = (props) => {
 
   const dispatch = useDispatch()
 
-  console.log(id)
-
-  const onClickPlusButton = () => {
+  const onClickPlusButton = (quantity, price) => {
     const newQuantity = quantity + 1
     const newPrice = newQuantity * price
 
@@ -43,6 +42,13 @@ export const CartItem = (props) => {
 
     handleAsyncAction(async () => {
       await patchItem(newItem, id)
+      const data = await getCart()
+      dispatch(createActionSetCart(data))
+    })
+  }
+  const onClickMinusButton = (id) => {
+    handleAsyncAction(async () => {
+      await deleteItem(id)
       const data = await getCart()
       dispatch(createActionSetCart(data))
     })
@@ -133,13 +139,14 @@ export const CartItem = (props) => {
           className={classes.buttonContainer}
         >
           <Button
-            onClick={() => { onClickPlusButton() }}
+            onClick={() => { onClickPlusButton(quantity, price) }}
             className={classes.buttonINC}
             variant={'contained'}
           >
             +
           </Button>
           <Button
+            onClick={() => { onClickMinusButton(id) }}
             className={classes.buttonDEC}
             variant={'contained'}
           >

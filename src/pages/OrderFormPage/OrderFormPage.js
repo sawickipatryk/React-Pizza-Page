@@ -12,6 +12,8 @@ import Logo from '../../components/Logo'
 import Container from '../../components/Container'
 import ToggleMenu from '../../components/ToggleMenu'
 import Cart from '../../components/Cart'
+import Button from '../../components/Button'
+import Typography from '../../components/Typography'
 
 export const OrderFormPage = (props) => {
   const [toggleMenu, setToggleMenu] = React.useState(false)
@@ -97,7 +99,58 @@ export const OrderFormPage = (props) => {
           </Container>
       }
         contentLeftSide={
-          < >
+          <div
+            className={classes.wrapperLeftSide}
+          >
+            <div
+              className={classes.headerContainer}
+            >
+              <Typography
+                variant={'h4'}
+              >
+                Your Order
+              </Typography>
+              <Button
+                variant={'contained'}
+              >
+                GO BACK
+              </Button>
+            </div>
+            <div
+              className={classes.deliveryOptionsContainer}
+            >
+              <Typography
+                className={classes.h4}
+                variant={'h4'}
+              >
+                Delivery Options
+              </Typography>
+              <div
+                className={classes.deliverysBoxContainer}
+              >
+                <div
+                  className={classes.box}
+                >
+                  <Button
+                    className={classes.button}
+                    variant={'text'}
+                  >
+                    Pizza Rider
+                    Delivery
+                  </Button>
+                </div>
+                <div
+                  className={classes.box}
+                >
+                  <Button
+                    className={classes.button}
+                    variant={'text'}
+                  >
+                    Collection
+                  </Button>
+                </div>
+              </div>
+            </div>
             <FormProvider
               {...methods}
             >
@@ -107,7 +160,41 @@ export const OrderFormPage = (props) => {
                 onSubmit={onSubmit}
               />
             </FormProvider>
-          </>
+            <div
+              className={classes.payFormContainer}
+            >
+              <Typography
+                variant={'h4'}
+                className={classes.h4}
+              >
+                Pay Form
+              </Typography>
+              <div
+                className={classes.payFormsContainer}
+              >
+                <div
+                  className={classes.box}
+                >
+                  <Button
+                    className={classes.button}
+                    variant={'text'}
+                  >
+                    Cash
+                  </Button>
+                </div>
+                <div
+                  className={classes.box}
+                >
+                  <Button
+                    className={classes.button}
+                    variant={'text'}
+                  >
+                    Cart
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
           }
         contentRightSide={
           <div>

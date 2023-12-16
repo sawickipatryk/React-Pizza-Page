@@ -51,6 +51,46 @@
     width: 135px;
 }
 
+.headerContainer,
+.deliveryOptionsContainer,
+.payFormContainer {
+    box-shadow: 0 15px 50px 0 rgba(0, 0, 0, .1);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.headerContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.h4 {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.deliverysBoxContainer,
+.payFormsContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.box {
+    box-shadow: 0 15px 50px 0 rgba(0, 0, 0, .1);
+    border-radius: 10px;
+}
+
+.box:hover {
+    background-color: #FAC213;
+}
+
+.button {
+    height: 140px;
+    width: 140px;
+}
 
 @media screen and (min-width:768px) {
 
@@ -58,7 +98,15 @@
         width: 155px;
     }
 
+    .deliverysBoxContainer,
+    .payFormsContainer {
+        justify-content: flex-start;
+        gap: 30px;
+    }
+
 }
+
+@media screen and (min-width:1024px) {}
 
 @media screen and (min-width:1200px) {
 

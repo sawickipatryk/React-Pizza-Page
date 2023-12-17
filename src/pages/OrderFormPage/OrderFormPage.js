@@ -5,6 +5,8 @@ import classes from './styles.module.css'
 
 import { useForm, FormProvider } from 'react-hook-form'
 
+import { useNavigate } from 'react-router-dom'
+
 import ItemLayout from '../../layouts/ItemLayout'
 import OrderForm from '../../components/OrderForm'
 import NavLink from '../../components/NavLink'
@@ -27,6 +29,7 @@ export const OrderFormPage = (props) => {
 
   const methods = useForm()
   const { handleSubmit, reset } = methods
+  const navigate = useNavigate()
 
   const onSubmit = handleSubmit(
     (data, e) => {
@@ -36,6 +39,8 @@ export const OrderFormPage = (props) => {
     (errors, e) => {
     }
   )
+
+  const onClickGoBack = React.useCallback(() => navigate('/menu'), [navigate])
 
   const openMenu = () => {
     setToggleMenu(!toggleMenu)
@@ -126,6 +131,7 @@ export const OrderFormPage = (props) => {
                 Your Order
               </Typography>
               <Button
+                onClick={onClickGoBack}
                 variant={'contained'}
               >
                 GO BACK

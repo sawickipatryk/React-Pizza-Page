@@ -33,7 +33,10 @@ export const Cart = (props) => {
   const newObject = { ...currentItem, size: chosenSize, price: chosenPrice, totalPrice: chosenPrice }
 
   const navigate = useNavigate()
-  const onClickBuyButton = React.useCallback(() => navigate('/orderform'), [navigate])
+  const onClickBuyButton = React.useCallback(() => {
+    window.scrollTo(0, 0)
+    navigate('/orderform')
+  }, [navigate])
 
   const dispatch = useDispatch()
   const {

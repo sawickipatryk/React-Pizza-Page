@@ -49,8 +49,14 @@ export const MainPage = (props) => {
     await logOut()
     dispatch(createActionSetInfo('You are logged out!'))
   }
-  const onClickCheckButton = React.useCallback(() => navigate('/contact'), [navigate])
-  const onClickOrderNow = React.useCallback(() => navigate('/menu'), [navigate])
+  const onClickCheckButton = React.useCallback(() => {
+    navigate('/contact')
+    window.scrollTo(0, 0)
+  }, [navigate])
+  const onClickOrderNow = React.useCallback(() => {
+    navigate('/menu')
+    window.scrollTo(0, 0)
+  }, [navigate])
 
   return (
     <div

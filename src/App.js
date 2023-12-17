@@ -54,6 +54,7 @@ export const App = () => {
   const dismissMessage = React.useCallback(() => {
     dispatch(createActionRemoveInfo())
     navigate('/')
+    window.scrollTo(0, 0)
   }, [dispatch, navigate])
 
   React.useEffect(() => {

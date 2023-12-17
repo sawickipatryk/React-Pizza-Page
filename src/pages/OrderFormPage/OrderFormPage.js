@@ -40,7 +40,10 @@ export const OrderFormPage = (props) => {
     }
   )
 
-  const onClickGoBack = React.useCallback(() => navigate('/menu'), [navigate])
+  const onClickGoBack = React.useCallback(() => {
+    navigate('/menu')
+    window.scrollTo(0, 0)
+  }, [navigate])
 
   const openMenu = () => {
     setToggleMenu(!toggleMenu)

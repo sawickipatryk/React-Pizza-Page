@@ -20,7 +20,10 @@ export const RecoveryPasswordForm = (props) => {
   const methods = useFormContext()
 
   const navigate = useNavigate()
-  const onClickBackToMainPage = React.useCallback(() => navigate('/'), [navigate])
+  const onClickBackToMainPage = React.useCallback(() => {
+    navigate('/')
+    window.scrollTo(0, 0)
+  }, [navigate])
 
   const {
     register,

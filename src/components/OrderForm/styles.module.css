@@ -1,7 +1,7 @@
 .root {
     width: 100%;
     box-shadow: 0 15px 50px 0 rgba(0, 0, 0, .1);
-    padding: 20px;
+    padding: 40px 20px;
     border-radius: 10px;
     margin-bottom: 10px;
 }

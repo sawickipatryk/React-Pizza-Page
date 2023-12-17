@@ -83,13 +83,20 @@
     border-radius: 10px;
 }
 
-.box:hover {
-    background-color: #FAC213;
-}
 
 .button {
     height: 140px;
     width: 140px;
+    border-radius: 10px;
+}
+
+.button:hover {
+    background-color: #FAC213;
+}
+
+.active {
+    composes: button;
+    background-color: #FAC213;
 }
 
 @media screen and (min-width:768px) {

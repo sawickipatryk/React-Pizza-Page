@@ -18,6 +18,8 @@ import Typography from '../../components/Typography'
 export const OrderFormPage = (props) => {
   const [toggleMenu, setToggleMenu] = React.useState(false)
   const [popUp, setPopUp] = React.useState(false)
+  const [chosenDelivery, setChosenDelivery] = React.useState('')
+  const [chosenPayForm, setChosenPayForm] = React.useState('')
   const {
     className,
     ...otherProps
@@ -37,6 +39,19 @@ export const OrderFormPage = (props) => {
 
   const openMenu = () => {
     setToggleMenu(!toggleMenu)
+  }
+
+  const onClickRiderDelivery = () => {
+    setChosenDelivery('rider')
+  }
+  const onClickCollection = () => {
+    setChosenDelivery('collection')
+  }
+  const onClickPayCash = () => {
+    setChosenPayForm('cash')
+  }
+  const onClickPayCard = () => {
+    setChosenPayForm('card')
   }
 
   return (
@@ -132,7 +147,8 @@ export const OrderFormPage = (props) => {
                   className={classes.box}
                 >
                   <Button
-                    className={classes.button}
+                    onClick={onClickRiderDelivery}
+                    className={`${classes.button}${chosenDelivery === 'rider' ? ` ${classes.active}` : ''}`}
                     variant={'text'}
                   >
                     Pizza Rider
@@ -143,7 +159,8 @@ export const OrderFormPage = (props) => {
                   className={classes.box}
                 >
                   <Button
-                    className={classes.button}
+                    onClick={onClickCollection}
+                    className={`${classes.button}${chosenDelivery === 'collection' ? ` ${classes.active}` : ''}`}
                     variant={'text'}
                   >
                     Collection
@@ -176,7 +193,8 @@ export const OrderFormPage = (props) => {
                   className={classes.box}
                 >
                   <Button
-                    className={classes.button}
+                    onClick={onClickPayCash}
+                    className={`${classes.button}${chosenPayForm === 'cash' ? ` ${classes.active}` : ''}`}
                     variant={'text'}
                   >
                     Cash
@@ -186,10 +204,11 @@ export const OrderFormPage = (props) => {
                   className={classes.box}
                 >
                   <Button
-                    className={classes.button}
+                    onClick={onClickPayCard}
+                    className={`${classes.button}${chosenPayForm === 'card' ? ` ${classes.active}` : ''}`}
                     variant={'text'}
                   >
-                    Cart
+                    Card
                   </Button>
                 </div>
               </div>

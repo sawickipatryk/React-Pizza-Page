@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 
 import { useSelector, useDispatch } from 'react-redux'
 
+import { useNavigate } from 'react-router'
+
 import { createActionSetInfo } from '../../state/loaders'
 
 import classes from './styles.module.css'
@@ -28,6 +30,7 @@ export const MainPage = (props) => {
   const [isuserDropDownOpen, setIsuserDropDownOpen] = React.useState(false)
 
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const openMenu = () => {
     setToggleMenu(!toggleMenu)
@@ -46,6 +49,8 @@ export const MainPage = (props) => {
     await logOut()
     dispatch(createActionSetInfo('You are logged out!'))
   }
+  const onClickCheckButton = React.useCallback(() => navigate('/contact'), [navigate])
+  const onClickOrderNow = React.useCallback(() => navigate('/menu'), [navigate])
 
   return (
     <div
@@ -170,6 +175,7 @@ export const MainPage = (props) => {
                           Enjoy Your Pizza In Town
                         </Typography>
                         <Button
+                          onClick={onClickOrderNow}
                           className={classes.button}
                           variant={'contained'}
                         >
@@ -181,9 +187,13 @@ export const MainPage = (props) => {
                 </div>
             }
             />
-            <FastChoice/>
+            <FastChoice
+              onClickOrderNow={onClickOrderNow}
+            />
             <BestPizza/>
-            <Delivery/>
+            <Delivery
+              onClickCheckButton={onClickCheckButton}
+            />
           </>
           }
         contentFooter={

@@ -11,6 +11,7 @@ import Button from '../Button'
 export const Delivery = (props) => {
   const {
     className,
+    onClickCheckButton,
     ...otherProps
   } = props
 
@@ -44,6 +45,7 @@ export const Delivery = (props) => {
             Check available delivery&apos;s and order&apos;s options
           </Typography>
           <Button
+            onClick={onClickCheckButton}
             className={classes.button}
             variant={'contained'}
           >
@@ -65,7 +67,8 @@ export const Delivery = (props) => {
 }
 
 Delivery.propTypes = {
-  className: PropTypes.string
+  className: PropTypes.string,
+  onClickCheckButton: PropTypes.func.isRequired
 }
 
 export default Delivery

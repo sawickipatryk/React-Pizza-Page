@@ -10,6 +10,7 @@ import Button from '../Button'
 export const FastChoice = (props) => {
   const {
     className,
+    onClickOrderNow,
     ...otherProps
   } = props
 
@@ -34,6 +35,7 @@ export const FastChoice = (props) => {
               PEPE BIANCO
             </Typography>
             <Button
+              onClick={onClickOrderNow}
               className={classes.button}
               variant={'contained'}
             >
@@ -54,6 +56,7 @@ export const FastChoice = (props) => {
               PEPE BIANCO
             </Typography>
             <Button
+              onClick={onClickOrderNow}
               className={classes.button}
               variant={'contained'}
             >
@@ -67,7 +70,8 @@ export const FastChoice = (props) => {
 }
 
 FastChoice.propTypes = {
-  className: PropTypes.string
+  className: PropTypes.string,
+  onClickOrderNow: PropTypes.func.isRequired
 }
 
 export default FastChoice

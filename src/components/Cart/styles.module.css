@@ -26,9 +26,6 @@
 }
 
 @media screen and (min-width:768px) {
-    .cartContainer {
-        min-width: 450px;
-    }
 
     .button {
         width: 100%;
@@ -37,6 +34,9 @@
 }
 
 @media screen and (min-width:1024px) {
+    .cartContainer {
+        min-width: 450px;
+    }
 
     .button {
         width: 100%;

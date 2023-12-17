@@ -11,7 +11,6 @@
 
 .upperContainer {
     display: flex;
-
 }
 
 .img {
@@ -57,6 +56,25 @@
 .buttonContainer {
     display: flex;
     gap: 15px;
+}
+
+@media screen and (min-width:768px) {
+
+    .descriptionContainer {
+        width: calc(100% - 240px);
+    }
+
+    .quantityContainer {
+        width: 80px;
+    }
+
+    .priceContainer {
+        width: 80px;
+    }
+
+    .sizeContainer {
+        width: 80px;
+    }
 }
 
 @media screen and (min-width:1024px) {

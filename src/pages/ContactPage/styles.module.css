@@ -116,6 +116,36 @@
     margin-right: 20px;
 }
 
+.deliveryOptionContainer {
+    margin: auto;
+    padding: 20px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.deliverysContainer {
+    display: flex;
+    gap: 20px;
+}
+
+.deliveryBox {
+    width: 120px;
+    height: 120px;
+    background-color: #fff;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, .1), 0 4px 6px -2px rgba(0, 0, 0, .05);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.textDelivery {
+    font-weight: 500;
+}
+
 @media screen and (min-width:768px) {
 
     .logo {

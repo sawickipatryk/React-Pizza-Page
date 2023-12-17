@@ -145,6 +145,39 @@ export const ContactPage = (props) => {
                 </>
             }
             />
+            <div
+              className={classes.deliveryOptionContainer}
+            >
+              <Typography
+                variant={'h4'}
+              >
+                Available delivery&apos;s and order&apos;s options
+              </Typography>
+              <div
+                className={classes.deliverysContainer}
+              >
+                <div
+                  className={classes.deliveryBox}
+                >
+                  <Typography
+                    className={classes.textDelivery}
+                    variant={'text'}
+                  >
+                    Rider
+                  </Typography>
+                </div>
+                <div
+                  className={classes.deliveryBox}
+                >
+                  <Typography
+                    className={classes.textDelivery}
+                    variant={'text'}
+                  >
+                    Collection
+                  </Typography>
+                </div>
+              </div>
+            </div>
             <FormProvider
               {...methods}
             >

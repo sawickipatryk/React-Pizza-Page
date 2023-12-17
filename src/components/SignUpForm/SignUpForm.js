@@ -85,12 +85,14 @@ export const SignUpForm = (props) => {
             {...registeredEmailProps}
           />
           <TextField
+            type={'password'}
             className={classes.textField}
             placeholder={'Password'}
             errorMessage={errors.password && errors.password.message}
             {...registeredPasswordProps}
           />
           <TextField
+            type={'password'}
             className={classes.textField}
             placeholder={'Repeat Password'}
             errorMessage={errors.repeatPassword && errors.repeatPassword.message}

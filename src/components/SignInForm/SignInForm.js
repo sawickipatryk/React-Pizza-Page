@@ -70,6 +70,7 @@ export const SignInForm = (props) => {
             {...registeredEmailProps}
           />
           <TextField
+            type={'password'}
             className={classes.textField}
             placeholder={'Password'}
             errorMessage={errors.password && errors.password.message}

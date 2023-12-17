@@ -109,12 +109,6 @@ export const MenuItem = (props) => {
           >
             <Button
               variant={'contained'}
-              className={classes.button}
-            >
-              Add
-            </Button>
-            <Button
-              variant={'contained'}
               onClick={onClickViewItem}
               className={classes.button}
             >

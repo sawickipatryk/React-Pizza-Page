@@ -1,3 +1,18 @@
+# React Pizza Page
+
+## General info
+This project is restuarant page.
+	
+## Technologies
+Project is created with:
+* Firebase Auth
+* Firebase Hosting
+* React
+* Firebase REST API
+* CSS
+* HTML
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

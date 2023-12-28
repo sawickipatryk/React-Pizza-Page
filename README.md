@@ -11,6 +11,7 @@ Project is created with:
 * Firebase REST API
 * CSS Modules
 * React Hook Form
+* Redux
 
 
 # Getting Started with Create React App

@@ -9,7 +9,7 @@ Project is created with:
 * Firebase Hosting
 * React
 * Firebase REST API
-* CSS
+* CSS Modules
 * HTML
 
 

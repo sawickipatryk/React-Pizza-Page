@@ -10,7 +10,7 @@ Project is created with:
 * React
 * Firebase REST API
 * CSS Modules
-* HTML
+* React Hook Form
 
 
 # Getting Started with Create React App

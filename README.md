@@ -5,13 +5,15 @@ This project is restuarant page.
 	
 ## Technologies
 Project is created with:
+* React
+* CSS Modules
 * Firebase Auth
 * Firebase Hosting
-* React
 * Firebase REST API
-* CSS Modules
 * React Hook Form
+* React Router
 * Redux
+* ESLint
 
 
 # Getting Started with Create React App
